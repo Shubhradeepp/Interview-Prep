@@ -2,6 +2,23 @@ Representational State Transfer (REST)
 
 Architectural style of a API
 
+// Meaning 
+
+Representational => Format [JSON,xml] 
+State => State of Data (Response) 
+Transfer => Transfer response between parties
+
+The original state of response or data (json/xml) will tranfer during the api call (carry response/data) to the client, that's mean no SSR,
+After that CSR will happen (client render the data in diffrent state like[HTML]), but original state of data in dB remains the same.
+
+// Resource State: The image file (e.g., product_image.jpg) is stored on the server. This file exists independently of any specific client and doesn't change unless an update is made.
+
+// Representation of the Resource: When the client (a mobile app) requests the product image, the server sends the image or a specific version of it (e.g., a smaller thumbnail or different resolution) as a response. This is the representation of the resource for the client.
+
+// Application State: The mobile app then renders the image on its UI. If the user requests a zoomed-in version or a different color variation, the app's state will change based on the new representation it fetches from the server. 
+However, the image file on the server remains the same (constant resource state), unless the actual file is modified.
+
+ 
 Rules=>
 
 //1) Client-Server Architecture: 
