@@ -58,5 +58,74 @@ USE CASE: =>
   No SQL=> Big Data and High-Speed Data Ingestion, real-time analytics, social media, IoT
 
 
-  For an e-commerce application with many categories and big data (including a large number of users, products, and transactions), a NoSQL database like MongoDB would be more suitable  
+  // For an e-commerce application with many categories and big data (including a large number of users, products, and transactions), a NoSQL database like MongoDB would be more suitable
 
+
+ Node.js Express.js server with MongoDB, the data query and manipulation language used for API interactions is
+=> MongoDB Query Language (MQL), 
+
+  // Fetch all users with age greater than 25
+const usersCollection = db.collection('users');
+usersCollection.find({ age: { $gt: 25 } }).toArray((err, result) => {  //Process the result
+   });
+
+
+  //Graph Ql
+  GraphQL is a query language for APIs that provides a flexible and efficient way to fetch data from a server;
+ 
+// Why Graph ql
+
+1)Data Fetching	Client-driven, flexible;
+
+2)Over-fetching
+In REST APIs, you often have to fetch more data than you actually need. 
+For instance, if you want a user's name and email, you might have to fetch the entire user object, including unnecessary fields like address, phone number, and preferences. This can lead to increased network traffic and unnecessary processing on both the client and server sides.
+
+3)Under-fetching
+On the other hand, under-fetching occurs when you need to make multiple requests to fetch all the required data. 
+For example, if you want a user's name and their posts, you might need to make separate GET requests to fetch the user and then their posts. This can increase the number of network round trips and slow down the application.
+
+Advantages of GraphQL:
+
+  Reduced Network Overhead: GraphQL fetches only the necessary data, reducing network traffic.
+
+  Flexibility: Clients can request different data sets based on their needs.  
+
+
+Major Changes Summary:
+  Schema Definition: Define your data structure using GraphQL schema language.
+  Data Fetching: Shift from RESTful endpoints to a single GraphQL endpoint.
+  Query Structure: Construct GraphQL queries to request specific data.
+  Resolver Implementation: Write resolvers to fetch data from your data sources. 
+  //Resolvers are functions that fetch data for the fields in your schema.
+
+
+  Monolithic Architecture
+  Monolithic architecture is a software development approach where all components of an application are tightly coupled and deployed as a single unit. In a monolithic application, the entire system is built and deployable as a single executable file.
+
+  Faster Development: Can be faster to develop smaller applications.
+
+  Shared Codebase: All components share a common codebase.
+  Centralized Management: Changes to the application require modifying and redeploying the entire system.
+  Scalability Challenges: Difficult to scale independently, as the entire application needs to be scaled.
+  Technology Constraints: Limited flexibility in technology choices due to the tightly coupled nature.
+
+
+  Microservices: A modular architecture where the application is broken down into smaller, independent services that communicate via APIs.
+  
+Decoupling: Services are loosely coupled, allowing for independent development and deployment.
+Modularity: Each microservice is a self-contained unit with its own codebase, database, and deployment process.
+Scalability: Microservices can be scaled independently, allowing for efficient resource allocation.
+Technology Agnostic: Different microservices can use different technologies and programming languages.
+Fault Isolation: Failures in one microservice do not necessarily affect the entire application.
+
+
+//When to Transition to Microservices
+
+Increased Complexity: Your application has grown too complex for a monolithic architecture, making it hard to maintain or scale.
+
+Independent Scalability: Different parts of your application need to scale independently due to varying loads or user demands.
+
+Frequent Deployments: You require faster and more frequent deployments, enabling teams to work on features or services independently.
+
+Technology Diversity: You want to use different technologies or frameworks for different components based on specific requirements
