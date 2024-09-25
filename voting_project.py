@@ -146,3 +146,5 @@ userSchema.pre('save', async function (next) {
         }
     }
 }
+
+This logic is implemented in the pre('save') middleware, so it’s handled every time a new user is created. Additionally, this approach maintains system integrity by preventing race conditions, even if multiple requests are made simultaneously.
