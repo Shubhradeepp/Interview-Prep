@@ -121,3 +121,11 @@ This parameter sets the maximum number of tokens (words or subwords) that the mo
 
 Temperature: 1.0
 Temperature is a hyperparameter that controls the randomness of the model's output. A higher temperature (closer to 1.0) makes the model more likely to generate less common or surprising text, while a lower temperature (closer to 0.0) makes the model more likely to generate more predictable and repetitive text. A temperature of 1.0 is often used for more creative or exploratory responses.
+
+
+
+Why Node js
+Node.js is a popular choice for this project due to several key advantages:
+
+Asynchronous Programming: Node.js is built on the V8 JavaScript engine, which is highly optimized for asynchronous operations. This makes it well-suited for handling I/O-bound tasks like network requests, database interactions, and file system operations, which are common in chatbot applications.
+Scalability: Node.js' event-driven architecture allows it to handle a large number of concurrent connections efficiently. This is crucial for chatbot applications that need to serve multiple users simultaneously.
