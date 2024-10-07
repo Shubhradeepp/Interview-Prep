@@ -172,7 +172,7 @@ func()
 # hello(names)
 
 
-#File Handeling
+                 #File Handeling
 
 f= open('../cmd.py','r') 
 content = f.readline()  # Read the content of the file
@@ -212,3 +212,442 @@ f.seek(10) #move courser upto 10 character then read will start
 
 # with open('example.txt', 'a') as file:
 #     file.write('Appending this line.\n')  # Add a line to the end
+
+   #pip
+#pip install package_name ommand is used to install Python packages from the Python Package Index (PyPI) 
+
+#import
+
+
+# math_utils.py
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+
+
+# main.py
+
+# Importing the add function from the math_utils module
+from math_utils import add
+
+# Using the imported function
+result = add(5, 3)
+print(f"The result of adding is: {result}")
+
+
+
+# my_module.py
+
+class MyClass:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        return f"Hello, {self.name}!"
+
+# A dictionary
+my_dict = {
+    "apple": 1,
+    "banana": 2,
+    "cherry": 3
+}
+
+# A variable
+my_variable = "This is a variable."
+
+
+
+# main.py
+
+# Importing the class, dictionary, and variable from my_module
+from my_module import MyClass, my_dict, my_variable
+
+# Using the imported class
+obj = MyClass("Alice")
+print(obj.greet())  # Output: Hello, Alice!
+
+# Using the imported dictionary
+print(my_dict)  # Output: {'apple': 1, 'banana': 2, 'cherry': 3}
+print(my_dict["banana"])  # Output: 2
+
+# Using the imported variable
+print(my_variable)  # Output: This is a variable.
+
+
+
+       #OOP
+
+
+class Employee:
+    pass
+
+obj = Employee()
+print(obj)
+
+#The __init__ method is similar to constructors in C++ and Java. It is run as soon as an object of a class is instantiated.
+class Employee:
+    def __init__(self):
+        print(self)
+
+#self is a reference to the current instance of the class
+
+obj = Employee()
+print(obj)
+
+#default constractor
+class Employee:
+    def __init__(self):
+        pass
+
+#self === obj both tag the same adrdess
+
+class Employee:
+    def __init__(self, name):
+        self.name = name
+
+obj = Employee("Shubhradeep")
+print(obj.name)
+
+# public Employee(String name) {
+#         this.name = name;
+#     }
+
+class Employee:
+    company_name ="Google"
+    def __init__(self, name,id):
+        self.name = name
+        self.id=id
+
+obj = Employee("Shubhradeep",1100)
+print(obj.name,obj.id)
+print(Employee.company_name)
+
+
+
+class Employee:
+    company_name ="Google"
+    name="name"
+    def __init__(self, name,id):
+        self.name = name
+        self.id=id
+
+obj = Employee("Shubhradeep",1100)
+print(obj.name,obj.id) #Output shubhradeep, Obj attribute have higher priority than class attribute
+print(Employee.name) #name
+
+class Employee:
+    #constractor
+    def __init__(self, name,id):
+        self.name = name
+        self.id=id
+        #Method
+    def welcome(self):
+        return self.name + ' Hii'
+        
+obj = Employee("Shubhradeep",1100)
+print(obj.welcome()) #Shubhradeep Hii
+
+
+#Practice
+class Employee:
+    #constractor
+    def __init__(self, name,math,phy,his):
+        self.name = name
+        self.math=math
+        self.phy=phy
+        self.his=his
+        #Method
+    def welcome(self):
+        avg = (self.math + self.phy + self.his) / 3  # Calculate average
+        return f"{self.name}, Hi! Your Average is: {avg}" 
+        
+obj = Employee("Shubhradeep",100,100,80)
+print(obj.welcome())
+
+
+#static Method  => Methods that don't use the self parameter (work at class level)
+
+class Student:
+    @staticmethod #decorator => change the behavior 
+    def college( ):
+        print( "ABC College" )
+
+
+# Abstraction ->  Hiding the implementation details of a class and only showing the essential features to the user.
+class Car: 
+ def  __init__ (self) :
+    self.acc = False
+    self.brk = False
+    self.clutch = False
+ def start(self):
+    self. clutch = True
+    self.acc = True
+    print("car started..")
+
+car1=Car()
+car1.start()
+
+# Encapsulation   Wrapping data and functions into a single unit (object).
+
+#practice
+
+class Account: 
+ def  __init__ (self,acc,bal) :
+    self.acc = acc
+    self.bal = bal
+    
+ def credit(self,ammount):
+    self.bal +=ammount
+    print(f"Credited....{self.balance()}")
+    
+ def debit(self,ammount):
+    self.bal -=ammount
+    print(f"Debited....{self.balance()}")
+    
+ def balance(self):
+    return self.bal
+    
+obj=Account(100,50)
+obj.credit(20)
+obj.debit(10)
+
+
+ # Public - Private
+
+class Account: 
+ def  __init__ (self,acc,bal,acc_pass) :
+    self.acc = acc
+    self.bal = bal
+    self.__acc_pas=acc_pass
+    
+ def detail(self):
+    
+    print(f"{self.acc}....{self.bal}..{self.__acc_pas}")
+    
+obj=Account(100,50,"XYX")
+obj.acc #100
+obj.__acc_pas #Error
+obj.detail()
+
+# private works bit diffrent in python, if any service is declear with private(__attribute) then that service can be only used by internal of class , Can't acess outside of class with help obj directly
+
+# Inheritance
+# When one class(child/derived) derives the properties & methods of another class(parentlbase).
+
+
+class Car:
+    @staticmethod
+    def start():
+        print("car started")
+    @staticmethod
+    def stop():
+        print("car stopped." )
+
+class ToyotaCar(Car) :
+    def __init__ (self, name):
+        self. name = name
+        print( f"{self. name }")
+    
+
+car1= ToyotaCar("fortuner")
+car2= ToyotaCar ("prius")
+print(car1.start())
+
+
+# Inheritance
+# Types
+# • Single Inheritance
+# • Mufti-level Inheritance
+# • Multiple Inheritance
+
+class Parent1:
+    varp=8
+class Parent2:
+    varp=90
+class Child(Parent1, Parent2):  # Inheriting from both Parent1 and Parent2
+    var=77
+
+
+# Creating an object of the Child class
+obj = Child()
+print(obj.varp) #8  In your code, the output is 8 instead of 90 because of Python's Method Resolution Order (MRO). When a class inherits from multiple parent classes, Python determines the order in which it looks for attributes or methods based on the MRO.  =>   Python checks the first parent class in the inheritance list (Parent1), and finds varp = 8. It stops searching at this point, so the value from Parent1 is used.
+
+
+
+
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print(f"{self.name} makes a sound")
+
+
+class Bird:
+    def __init__(self, can_fly):
+        self.can_fly = can_fly
+
+    def fly(self):
+        if self.can_fly:
+            print(f"{self.name} can fly")
+        else:
+            print(f"{self.name} cannot fly")
+
+
+class Parrot(Animal, Bird):
+    def __init__(self, name, can_fly):
+        Animal.__init__(self, name)  # Call Animal constructor
+        Bird.__init__(self, can_fly)  # Call Bird constructor
+
+
+parrot = Parrot("Polly", True)
+parrot.speak()  # Output: Polly makes a sound
+parrot.fly()    # Output: Polly can fly
+
+
+
+#Super super( ) method is used to access methods of the parent class.
+
+class Parent:
+    def __init__(self, name):
+        self.name = name
+
+    def display(self):
+        print(f"Parent Name: {self.name}")
+
+class Child(Parent):
+    def __init__(self, name, age):
+        # Call Parent's constructor using super()
+        super().__init__(name)
+        self.age = age
+
+    def display(self):
+        # Call the display method of Parent using super()
+        super().display()
+        print(f"Child Age: {self.age}")
+
+# Create an object of the Child class
+child_obj = Child("John", 20)
+
+# Call the display method
+child_obj.display()
+
+
+#if any method doesn't use class or object attribute make it static
+
+
+ # Acessing Class attributes inside class => __class__   @classmethod
+class Employee:
+    name="name"
+    def change(self, name):
+        self.__class__.name=name
+         #OR
+        Employee.name = name
+        #OR
+    @classmethod
+    def change(cls, name):
+        cls.name=name
+
+
+obj = Employee()
+print(obj.change("Shubhradeep")) 
+print(obj.name)
+print(Employee.name) # Shubhradeep
+
+
+
+#Problem
+class Student:
+    def __init__ (self, phy, chem,math):
+
+        self. phy = phy
+        self. chem = chem
+        self.math = math
+
+        self. percentage= str((self.phy + self. chem + self.math) / 3) 
+
+stul = Student(98, 97, 99)
+print (stul. percentage)
+stul.phy = 86
+print(stul.phy) #86 number change
+print (stul. percentage) #percentage remains same even if the number change
+
+# Property
+# We use @property decorator on any method in the class to use the method as a property.
+
+#when a property depends on a funx
+
+class Student:
+    def __init__ (self, phy, chem,math):
+
+        self. phy = phy
+        self. chem = chem
+        self.math = math
+    @property
+    def percentage(self):
+        # Calculate average and store it in an instance variable
+        return str((self.math + self.phy + self.chem) / 3) # Return the calculated percentage
+
+stul = Student(98, 97, 99)
+print (stul. percentage)
+stul.phy = 86
+print(stul.phy) #86 number change
+print (stul. percentage) #change of percentage
+
+
+# Polymorphism : Operator Overloading
+# When the same operator is allowed to have different meaning according to the context.
+
+
+#Operators & Dunder functions => Write logic for operation
+class Complex:
+    def __init__ (self, real,img) :
+        self. real= real
+        self. img = img
+
+    def shownumber(self):
+        print(self.real,"i +", self.img,"j")
+
+#Dunder functions
+    def __add__ (self, num2):
+        newReal = self. real + num2. real
+        newImg= self. img + num2.img
+        return Complex(newReal, newImg)
+    
+    def __sub__ (self, num2):
+        newReal = self. real - num2. real
+        newImg= self. img - num2.img
+        return Complex(newReal, newImg)
+    
+
+
+num1= Complex(1, 3)
+num1. shownumber( )
+num2= Complex(4, 6)
+num2. shoAumber( )
+num3= num1 + num2
+num3. shownumber()
+num3= num1 - num2
+num3. shownumber()
+
+                # Recursion
+def show(n):
+    if (n ==0):
+        return
+    print(n)
+    show(n-1)
+show(5)
+
+#practice
+def print_list (list, idx=0):
+    if (idx ==len(list)):
+        return
+    print (list [idx] )
+    print_list(list, idx+1)
+
+print_list(fruit)
