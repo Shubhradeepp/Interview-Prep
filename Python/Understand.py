@@ -423,6 +423,8 @@ class Account:
     self.acc = acc
     self.bal = bal
     self.__acc_pas=acc_pass
+
+    # Purpose: To control direct access to the internal state of an object and to enforce encapsulation, i.e., the principle of hiding data within the class.
     
  def detail(self):
     
@@ -592,6 +594,8 @@ class Student:
     def percentage(self):
         # Calculate average and store it in an instance variable
         return str((self.math + self.phy + self.chem) / 3) # Return the calculated percentage
+    
+    # Make an attribute read-only or read/write.  control how attributes are  modified
 
 stul = Student(98, 97, 99)
 print (stul. percentage)
@@ -651,3 +655,28 @@ def print_list (list, idx=0):
     print_list(list, idx+1)
 
 print_list(fruit)
+
+
+
+                                        #decorator 
+
+def debug(func):
+    def wrapper(*args, **kwargs):
+        args_value = ', '.join(str(arg) for arg in args)
+        kwargs_value = ', '.join(f"{k}={v}" for k, v in kwargs.
+        items())
+        print(f"calling: {func.__name__} with args {args_value} and kwargs {kwargs_value}")
+        return func(*args, **kwargs)
+    
+    return wrapper
+
+@debug
+def hello():
+    print("hello")
+
+@debug
+def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}")
+
+hello()
+greet("chai", greeting="hanji ")
