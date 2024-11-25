@@ -26,5 +26,18 @@ https://leetcode.com/problems/two-sum/description/
 
 https://leetcode.com/problems/sort-colors/
 
+https://www.geeksforgeeks.org/problems/need-some-change/0
+
+https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/
+
+https://leetcode.com/problems/rotate-array/description/    ***
+
+https://leetcode.com/problems/count-elements-with-strictly-smaller-and-greater-elements/description/
+
+https://leetcode.com/problems/find-pivot-index/description/
+
+https://leetcode.com/problems/product-of-array-except-self/description/
+
+https://leetcode.com/problems/trapping-rain-water/description/
 
 

@@ -157,3 +157,13 @@ Page"
 + req.query.name);
 //locdhost:8000/home?name=shubhradeep&age=23
 
+
+
+Explain how ORMs work in Node.js (e.g., Mongoose or Sequelize).
+
+Answer: ORMs (Object-Relational Mappers) in Node.js allow developers to interact with databases using JavaScript objects instead of writing raw SQL queries. ORMs map database records to objects in the code. Mongoose is a popular ORM for MongoDB, while Sequelize is commonly used with SQL databases like PostgreSQL or MySQL.
+
+
+How would you structure a Node.js application to follow microservices architecture?
+
+Answer: In a microservices architecture, the application is divided into small, independent services that communicate with each other over the network. Each microservice focuses on a specific business capability. In Node.js, you can structure the app into modules (microservices), each with its own database, routing, and API logic, and use communication protocols such as HTTP or message queues (e.g., RabbitMQ).

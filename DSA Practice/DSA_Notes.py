@@ -1,5 +1,13 @@
 // Time Complexity — Time taken by code to execute a particular task as a function of the input length.
 
+1 sec => 10^8 operations
+
+10^8 operations => 1 sec
+1                1/10^8 sec
+10^9             10 sec
+10^18           10^10 sec = 317 years
+
+
 // Time Complexity is a function to measure the efficiency of your code as the length of your input increases
 
 //   space Complexity — Additional space taken by code to execute
@@ -7,9 +15,9 @@
 
 // Copy the elements of one array to another
 
-  int[] newArr = new int[arr.length]; // T.C 0(1) | S.C 0(n)
+int[] newArr = new int[arr.length]; // T.C 0(1) | S.C 0(n)
 
-  for(int i = 0; i < arr.length; i++) {
+for(int i = 0; i < arr.length; i++) {
   newArr[i] = arr[i]; 
   }    //System.arraycopy() 
 
@@ -73,7 +81,8 @@ log2 (n) ~ (log n) */
 
 
 
-//*****Bits (They are faster)
+# //*****Bits (They are faster)
+
 //   &[*], | [+] , ^ [Diffrent Will be 1] , ~ [Not]
 int num = 11; // 1011 & 0001 = 0001
 if((num & 1) == 0)
@@ -129,6 +138,7 @@ int[] arr = new int[n + 1];
      //ClassName object = new ClassName();  
      List<Integer> list = new ArrayList<>();
      lisi.add(3);
+
 // Reverse T=0(n/2) S=0(1)
     // reverseArray(int arr[], int n) {
        //  int i=0,j=n-1;
@@ -137,3 +147,7 @@ int[] arr = new int[n + 1];
        //     arr[j]= arr[i]^arr[j];
        //     arr[i]= arr[i]^arr[j];
        //     i++;j--;
+
+ //      
+
+
