@@ -204,7 +204,56 @@ console.log(isNaN(b)) // False
 
 
 
+//** this keyword =>  Arrow function*/
 
+//In JavaScript, the context of a function call is determined solely by how it is invoked, not where it is defined.
+
+function outerFunction() {
+  function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    console.log(firstName, "", lastName);
+    console.log(this); // Global
+  }
+
+  // Call the Person function
+  Person("John", "Doe");
+   console.log(this); //Global
+}
+
+outerFunction();
+//Even if a function is defined inside another function (like Person inside outerFunction), calling it as a regular function means its this does not inherit the context of the outer function.
+
+
+//**Explanation => */
+// When you invoke a function without any context (like Person()), there is no object "owning" the call.
+
+// Lexical Scope ≠ this
+// While Person has access to variables in its enclosing scope (outerFunction), the this keyword is not lexically scoped.
+// this is determined dynamically at call time, not at definition time.
+
+
+
+// Arrow functions do not have their own this. 
+// Instead, they inherit this from their enclosing function or scope,   
+
+const obj = {
+  value: 42,
+  regularFunction: function () {
+    console.log(this); // `this` is `obj` (method call)
+    
+    const arrowFunction = () => {
+      console.log(this); // Lexically inherited `this` from `regularFunction`
+    };
+
+    arrowFunction();
+  },
+};
+
+obj.regularFunction();
+
+
+// For arrow functions, this is not dynamic. Instead, it is lexically inherited from the scope in which the arrow function is defined. This is why we say arrow functions have "lexical scoping" for this.
 
 const obj={
     firstName: "Global",
@@ -219,13 +268,21 @@ const obj={
     normal: function() {
         console.log(this); //person
         console.log(this.firstName + " " + this.lastName);
+
+        function inner(){
+          console.log(this); //Global
+          console.log(this.firstName + " " + this.lastName);
+      }
+      inner(); //Global
+
         const arrowinn=()=>{
             console.log(this); //Person
             console.log(this.firstName + " " + this.lastName);
         }
-        arrowinn();
+        arrowinn(); // Inherited from function
     },
     arrow: () => {
+      //In this case, arrow is defined as a property of the person object, but it does not bind to person. Instead, it inherits this from the surrounding scope, [Function: arrow => define inside Person => inherit context of person (Global)] which in this example is the global object
         console.log(this); //{}
         
      console.log(obj.firstName + " " + this.lastName);
@@ -241,6 +298,9 @@ app.get('/', (req, res) => {
 });  //Get is higher order function // res is call back function
 
 
+
+
+//**INTERVIEW QUESTION => */*/
 
 
 myFun();
