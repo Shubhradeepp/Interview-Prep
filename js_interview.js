@@ -201,6 +201,21 @@ let b=5
 console.log(isNaN(a)) //true
 console.log(isNaN(b)) // False
 
+// ** Event Loop
+// Call Stack: JavaScript executes code in the call stack, which follows a "last in, first out" (LIFO) principle.
+
+// Web APIs/Task Queues: When asynchronous operations like setTimeout, Promises, or I/O requests are encountered, they are handed off to system APIs or threads.
+
+// Task Queue (or Callback Queue): Once these asynchronous tasks are completed, their callbacks are added to the task queue.
+
+// Event Loop: The event loop continuously checks if the call stack is empty. If it is, it takes the first callback from the task queue and pushes it to the call stack for execution.
+
+// Microtasks vs. Macrotasks:
+// Microtasks (e.g., Promise.then, MutationObserver) have higher priority and are executed before macrotasks.
+// Macrotasks (e.g., setTimeout, setInterval) are processed afterward.
+
+// Non-blocking Nature: This design ensures that JavaScript doesn't block the main thread, enabling smooth execution of user interfaces and efficient handling of concurrent operations.
+
 
 
 
@@ -293,6 +308,7 @@ const obj={
   person.arrow(); // returns "Global Undefined"
 
 
+// **Callback Function => is   funx that is packed as an arguement to another higher oderred funx
 app.get('/', (req, res) => {
     res.send('Hello, World!'); // The callback sends a response back to the client
 });  //Get is higher order function // res is call back function
@@ -390,48 +406,324 @@ for(var i=0;i<5;i++){
 
 
 
+
+//**Destructuring */
+
+const colors = ['red', 'green', 'blue', 'yellow', 'orange' , 'purple'];
+// Swapping values
+[colors[0], colors[3]] = [colors[3], colors[0]];
+
+// Assign values to variables
+const [first, second, third ,...remain ] = colors;
+console.log(remain); //[ 'blue', 'red', 'orange' ]
+
+
+
+
+const person1 = {
+  name: 'John',
+  age: 30,
+  address: {
+    street: '123 Main St',
+    city: 'New York',
+    state: 'NY'
+  }
+};
+const person2 = {
+  name: 'Jane',
+  age: 25,
+  address: {
+    street: '456 Elm St',
+    city: 'Los Angeles',
+    state: 'CA'
+  }
+};
+const { name: person1Name, 
+  age: person1Age ,
+  address: { street, city, state }  
+} = person1;
+
+//const { name, age, ...rest } = person1;
+//console.log(rest);    // Output: { name: 'Jane', age: 25, occupation: 'Designer' }
+
+
+console.log(`City: ${city}`);        // Output: City: New York
+console.log(`State: ${state}`);      // Output: State: NY
+
+function printPersonInfo({ name, age=90 }) {
+  //age = 90 sets a default value for age only if age is undefined or not provided.
+
+  console.log(`Name: ${name}, Age: ${age}`);
+}
+printPersonInfo(person1); // Output: Name: John, Age: 30
+
+
+//**Spread / REST  => Un-packing */
+let username ="Shubhradeep"
+let letters=[...username].join("-")
+
+//*Slice */
+let short=username.slice(0,5) // Shubh
+
+let PersonalNamee="Agent Vinod"
+let nAme= PersonalNamee.slice(0, PersonalNamee.indexOf(" "));
+
+const email="shubhradeep@gmail.com"
+
+const [username, domain] = email.split("@"); //shubhradeep  gmail.com
+
+// ** Object //
+
 for( key in obj)
-var user =
-{
-name: "Roadsde Coder" ,
-age: 24,
-"is Total Awesome": true
+
+var user ={
+  name: "Roadsde Coder" ,
+  age: 24,
+  "is Total Awesome": true
 }
 for (key in user){
 console.log(user[key])} ;
+
+
+const a={
+  id : 001,
+  Name : 'Rohit',
+  Role : "Dev"}
+  a['salary']=20000
+  a['Role']='Tester'
+  
+  console.log(a)
+  console.log(a.Name)
+  console.log(a['Name'])
+
 
 const a={}
 const b={ key: 89}
 a[b]=5678; // a=[object object]=5678;
 
+
+
+//*JSON => javascript object notation
+//Lightweight human readable format for tranfering data
+// language independent, Commonly use for data exchange b/w server and webpage
+//Simple str base on key value pair
+
 JSON.stringfy(obj) // convert obj to string
 JSON.parse(obj)
+// JSON.stringify() is a method that converts a JavaScript object or value to a JSON string.
 
-//Spread
-console.log(..."Javascript") // Array  J a v a s c r i p t
-
-//Destructuring
-const{"is Total Awesome" : k}=user
-console.log(k)
+//***Loop js
 
 
+/* For in loop  commonly used for iterating over the keys (property names) of an object, including arrays and objects.
+
+It's not recommended for iterating over arrays, as it may have unexpected behavior when used with arrays due to its interaction with prototype properties.*/
+
+/*const arr=[10,2,3,4]
+for(let k of arr){
+console.log(k)// typeof number}*/
+
+const B=[ 
+  {name : "a",id: 1},
+  {name : "b",id: 2},
+  {name : "c",id: 3},
+  ];
+  for(let n in B){
+  console.log(B[n]) // { name: 'a', id: 1 }
+  // typeof console.log(typeof(B[n]))  object
+  }
+  
+  
+  
+const arr=[10,2,3,4]
+for(let k in arr){
+  console.log(k)// 0 1 2 3 // typeof String [Print Index] 
+} 
+  
+  
+  const obj = { a: 10, b: 2, c: 3 };
+  for (let key in obj) {
+    console.log(key, obj[key]);
+  }
+  
+  
+  /*Use for...of to iterate over the values of iterable objects, such as arrays and strings. It provides a cleaner syntax and is safer for array iteration.*/
+  
+  const array = [1, 2, 3];
+  for (let value of array) {
+    console.log(value);
+    
+  }
+  
+  const A=[ //A is a array
+  {name : "a",id: 1},
+  {name : "b",id: 2},
+  {name : "c",id: 3},
+  ];
+  for(let n of A){
+  console.log(n)}
+
+    // **For each doesn't return anything
+    const coding = [
+      {
+      languageName: "javascript",
+      languageFileName: "js"
+  },
+  {
+      languageName: "cpp",
+      languageFileName: "c++"
+  },
+  {
+      languageName: "ruby",
+      languageFileName: "r"
+  },]
+   coding.forEach( (item, index)=> {
+       console.log(typeof item) // object
+        console.log(typeof index) // number
+         
+   console.log(item.languageName, index);
+  })
+  
+//*** array into object
+const obj={
+  arr:[1,2,3]
+}
+console.log(obj.arr[1]) //2
+console.log(Object.keys(obj)) // return a array //[ 'arr' ]
+console.log(Object.values(obj)) //[ [ 1, 2, 3 ] ]
+
+//*   immediately invoke funx (IIFE)       
+(function a1(){
+  console.log("Running invoke")
+})();
+// ; is used to end the exucution of code
+((name)=>{
+  console.log("Running invoke2nd "+name )
+})("SHUBHRA");
+
+((name2)=>{
+  console.log(`Running invoke3nd ${name2} `)
+})("RAHUL")
+
+
+// ** Map **
+
+const map = new Map ()
+map.set ('IN', "India")
+map.set( 'USA', "United States of America")
+map.set ('Fr', "France")
+map.set ('IN', "India")
+
+console.log (map); //object
+// output
+// Map(3) {
+//     'IN' => 'India',
+//     'USA' => 'United States of America',
+//     'Fr' => 'France'
+//   }
+
+
+for (const key of map) {
+    console.log(key); // give array str //[ 'IN', 'India' ]
+    console.log(typeof key) // object
+}
+
+for (const [key, value] of map) {
+    console.log(key, ':-', value)
+    console.log(typeof key) //string
+    console.log(typeof value); // string
+}
 
 
 
+//*** FIlter */
+//The filter() method creates a new array containing elements that satisfy a specified condition. This method skips empty elements and does not change the original array.
+const myNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const newNums = myNums.filter( (num) => num>=5)
+console.log(newNums)
+  //[ 5, 6, 7, 8, 9, 10 ] //Always need a new array
+  
 
 
+  const comparison = [
+    { Method: "map()", 
+  Description: "Creates a new array with the same length as the original array, but with each element transformed by the callback function.", 
+  UseCase: "Used when you want to transform each element in an array.", 
+  Return: "Returns a new array with the same length as the original array." 
+  },
+    { Method: "filter()",
+      Description: "Creates a new array with only the elements that pass the conditions implemented by the callback function.", 
+      UseCase: "Used when you want to select only certain elements that meet a specific condition.", 
+      Return: "Returns a new array with a length that is equal to or less than the original array." 
+    }
+  ];
+
+  
+//*** */ Map method
+    //  The map() method is an ES5 feature that creates a new array by applying a function to each element of the original array. It skips empty elements and
+    //  does not modify the original array.
+const newNum = myNums.map( (num) => num>=5)
+console.log(newNum)
+  //  [
+  //   false, false, false,
+  //   false, true,  true,
+  //   true,  true,  true,
+  //   true
+  // ]
+  
+       // without fliter 
+  //  const newNums=[]
+  // myNums.forEach( (num) => {
+  // if (num > 4) {
+  // newNums .push(num)}
+  // })
+  // console.log (newNums);
+  
+       //****Chaning */
+  
+const myNumers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  
+const newNums = myNumers.map( (num) => { return num + 10})
+      // [11, 12, 13, 14, 15,]
+      
+  
+    //Filter use for condition check, where map use for operation on each value and return it
+  // const newNums = myNumers
+  //                 .map((num) => num * 10 )
+  //                 .map( (num) => num + 1)
+  //                 .filter( (num) => num >= 40)
+  // console.log(newNums);
+  
+
+  //* reduce() Method
+  // The JavaScript Array.reduce() method iterates over an array, applying a reducer function to each element, accumulating a single output value. It takes an initial value and processes elements from left to right, reducing the array to a single result. It is useful for doing operations like max in an array, min in an array and sum of array
+
+  const array1 = [1, 2, 3, 4];
+
+  // 0 + 1 + 2 + 3 + 4
+  const initialValue = 0;
+  const sumWithInitial = array1.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue,
+  );
+  
+  console.log(sumWithInitial);
+  // Expected output: 10
 
 
+  const numbers = [10, 5, 8, 2, 15];
 
+  const min = numbers.reduce((accumulator, currentValue) => {
+    return Math.min(accumulator, currentValue);
+  }, Infinity); // Initialize with Infinity
+  
+  console.log(min); // Output: 2  
+  
+const max = numbers.reduce((accumulator, currentValue) => {
+  return Math.max(accumulator, currentValue);
+}, -Infinity);
 
-
-
-
-
-
-
-
-
+console.log(max); // Output: 20
 
 // Node js
 
