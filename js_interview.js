@@ -314,10 +314,7 @@ app.get('/', (req, res) => {
 });  //Get is higher order function // res is call back function
 
 
-
-
-//**INTERVIEW QUESTION => */*/
-
+// **Hoisting => */
 
 myFun();
 var myFun = function(){
@@ -724,6 +721,11 @@ const max = numbers.reduce((accumulator, currentValue) => {
 }, -Infinity);
 
 console.log(max); // Output: 20
+
+
+
+// Try catch
+
 
 // Node js
 
