@@ -41,3 +41,8 @@ https://leetcode.com/problems/product-of-array-except-self/description/
 https://leetcode.com/problems/trapping-rain-water/description/
 
 
+https://leetcode.com/problems/single-number-iii/description/
+
+https://leetcode.com/problems/single-element-in-a-sorted-array/description/
+
+https://leetcode.com/problems/single-number-ii/
