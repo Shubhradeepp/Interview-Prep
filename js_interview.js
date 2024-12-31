@@ -441,7 +441,8 @@ const { name: person1Name,
 } = person1;
 
 //const { name, age, ...rest } = person1;
-//console.log(rest);    // Output: { name: 'Jane', age: 25, occupation: 'Designer' }
+//console.log(rest);   
+// Output: { address: { street: '123 Main St', city: 'New York', state: 'NY' } }
 
 
 console.log(`City: ${city}`);        // Output: City: New York
@@ -452,7 +453,7 @@ function printPersonInfo({ name, age=90 }) {
 
   console.log(`Name: ${name}, Age: ${age}`);
 }
-printPersonInfo(person1); // Output: Name: John, Age: 30
+printPersonInfo(person1); // Output: Name: John, Age:30
 
 
 //**Spread / REST  => Un-packing */
@@ -725,6 +726,241 @@ console.log(max); // Output: 20
 
 
 // Try catch
+
+//*Try
+// To execute code that could produce an error without crashing the entire application.
+// To isolate error-prone code and handle errors gracefully.
+
+
+try {
+  let resource = openResource();
+  processResource(resource);
+} catch (error) {
+  console.error("Error processing resource:", error.message);
+} finally {
+  closeResource();
+  console.log("Resource closed.");
+}
+
+//*catch
+
+// To handle specific errors without stopping the program.
+// To provide meaningful error messages or alternative behavior.
+
+//*Finally
+
+// To ensure cleanup operations always run.
+// To guarantee certain actions (e.g., disconnecting from a server) occur, even if an error interrupts execution.
+
+//* throw new Error
+
+//In JavaScript, the throw statement is used to explicitly raise an error. When you use throw, the execution of the program immediately stops in the try block and jumps to the catch block (if one exists). If no catch block is present, the error propagates up the call stack.
+try{
+  const divided = Number(window.prompt("Enter a number: "))
+  const divisor= Number(window.prompt("Enter a divisor: "))
+  if (divisor === 0) {
+    throw new Error("Divisor cannot be zero.");
+  }
+  if(isNaN(divided) || isNaN(divisor)){
+    throw new Error("Invalid input. Please enter a number.")
+  }
+  const result = divided / divisor;
+  console.log(`The result is ${result}`);
+
+}
+catch(error){
+  console.log(error.message)
+}
+console.log("The program continues ...")
+
+
+//*callback Hell
+// Situation in JavaScript where callbacks are nested within other callbacks to the degree where the code is difficult to read.
+
+//Inversion of Control (IoC)=> We are blindly trusting the callback function to do the job.Giving control to the callback function.
+
+//**Promise VS Callback hell
+
+// walkdog => clean house => take out the trash
+function walkdog(callback){
+  setTimeout(() => {
+  console.log("walk the dog.. 🐕");
+  callback();
+  }, 2000);
+}
+
+function cleane(callback){
+  setTimeout(() => {
+  console.log("clean the house.. 🧹");
+  callback();
+  },1500);
+  }
+
+  function trash(callback){
+    setTimeout(() => {
+    console.log("take out the trash.. 🗑️");
+    callback();
+    },600)
+    }
+
+//callback
+walkdog(()=>{
+  cleane(()=>{
+    trash(()=>{
+      console.log("all done")
+    })
+  })
+});
+
+
+//* Promise => An Object that manages asynchronous operations. Wrap a Promise Object around {asynchronous code}
+// "I promise to return a value"
+// PENDING RESOLVED or REJECTED
+// new Promise((resolve, reject) {asynchronous code))
+
+
+// Promises provide: =>
+// A cleaner, flat structure instead of nested callbacks.
+// Automatic error propagation.
+// Better debugging support.
+
+function walkdog(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("walk the dog.. 🐕");
+    }, 2000);
+  });
+}
+
+function cleane(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("clean the house.. 🧹");
+    },1500);
+});
+}
+
+function trash(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("take out the trash.. 🗑️");
+      resolve();
+    },600);
+});
+}
+
+walkdog().then((value)=>{
+                                console.log(value); 
+                                return cleane();})
+         .then((value)=>{
+                              console.log(value); 
+                              return trash();})
+         .then((value)=>{console.log(value); 
+                              console.log("all done")})
+
+//Reject
+
+const promiseFour = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+      let error = false;
+      if (!error) {
+          resolve({ username: "Shubhradeep", password: "xyz" });
+      } else {
+          reject("ERROR: Something went wrong");
+      }
+  }, 1000);
+});
+promiseFour
+  .then((user) => {
+      console.log(user);
+      return user.username;
+  })
+  .then((username) => {
+      console.log(username);
+  })
+  .catch((error) => {
+      console.log(error);
+  })
+
+  //**Async/Await Async makes a function return a promise
+//Await • makes an async function wait for a promise
+
+async function work(){
+  try{
+  const result = await cleane();
+  console.log(result);
+  const result1 = await cleane();
+  console.log(result1);
+  const result2 = await trash();
+  console.log(result2);
+  console.log("all done")
+  }
+  catch(error){
+    .console.error(error);
+    
+  }
+}
+
+
+//*Module Import-Export
+
+//Function 
+export function add(a, b) {
+  return a + b;
+}
+
+import { add } from 'relative-path';
+
+export {
+  add,
+  multiply as multiplyFunction,
+}
+import * as all-import from "relative-path"
+
+//variable
+export const PI = 3.14;
+
+//default
+export default function add(a, b) {
+  return a + b;
+}
+import add from 'relative-path';
+
+//object
+
+// file: module.js
+export const namedObject = { key: "value" };
+
+const defaultObject = { defaultKey: "defaultValue" };
+export default defaultObject;
+
+// Importing in another file
+// file: main.js
+import defaultObj, { namedObject } from "./module.js";
+
+console.log(defaultObj.defaultKey); // Output: defaultValue
+console.log(namedObject.key); // Output: value
+
+//Function and obj
+
+// file: module.js
+const namedObject = { key: "value" };
+const defaultObject = { defaultKey: "defaultValue" };
+function myFunction() {
+  console.log("This is my function.");
+}
+
+// Export all as named exports
+export { namedObject, defaultObject, myFunction };
+
+// file: main.js
+import { namedObject, defaultObject, myFunction } from "./module.js";
+
+console.log(namedObject.key); // Output: value
+console.log(defaultObject.defaultKey); // Output: defaultValue
+myFunction(); // Output: This is my function.
+
+
 
 
 // Node js
