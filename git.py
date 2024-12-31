@@ -48,6 +48,7 @@ git commit -m "added .gitignore"
   #Branches
 git BRANCH
   git branch <branch_name>: Creates a new branch.
+
  **** git checkout <branch_name>: Switches to a different branch.
     git switch <branch_name>: Switches to a different branch.
     #if we swich from main or master branch and add a file to another branch 
@@ -107,3 +108,26 @@ git remote add <name> <url>: Adds a remote repository.
 
 
  git clone <url>: Creates a local copy of a remote repository.
+
+
+# colleboration
+
+#fork
+git switch -C newbranch
+
+git branch  [Give the current branch name]
+
+git push -u origin newbranch
+
+#main
+git switch newbranch
+
+git switch main
+
+git merge newbranch
+
+git push origin main
+
+#fork 
+
+git pull 
