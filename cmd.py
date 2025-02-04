@@ -64,5 +64,10 @@ ren file1.txt file2.txt: Renames 'file1.txt' to 'file2.txt'.
 start notepad.exe: Opens Notepad.
 exit: Closes the command prompt.
 
+# port kill
 
+netstat -aon | findstr <port>
+tasklist | findstr 3000
+ taskkill /PID 1278 /F
+ 
  
