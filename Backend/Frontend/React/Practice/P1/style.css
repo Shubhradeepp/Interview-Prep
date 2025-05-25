@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+    width: 80vw;
+    background-color: #705ab8;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+span{
+    font-size: 2rem;
+    text-align: center;
+}
+button{
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #705ab8;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

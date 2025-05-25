@@ -1,0 +1,23 @@
+const mongoose = require('mongoose')
+
+// Define MongoDB connection URL
+ const mongoURL=  'mongodb://127.0.0.1:27017/person'
+
+ //Set-up MOngoDB Connection
+
+
+
+ const db = async ()=>{
+  try {
+    const connectionInstance= await mongoose.connect(mongoURL)
+    console.log(`\nMongodB Connection: ${connectionInstance.connection.host}`);
+
+  } catch (error) {
+    console.error("Connection Error to MongodB", error)
+    throw error
+  }
+}
+ 
+
+  module.exports=db;
+

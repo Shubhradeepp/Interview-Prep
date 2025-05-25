@@ -1,0 +1,279 @@
+//String-Pool
+
+public class Main {
+    public static void main(String[] args) {
+ String s1="string";  String s2="string";
+        
+
+        
+  //String s1 = new String("string");
+  // String s2 = new String("string");
+
+ System.out.println(s1 == s2);
+// System.out.println(s1.hashCode());
+//System.out.println(s2.hashCode());
+//System.out.println(System.identityHashCode( s1 ));
+//System.out.println(System.identityHashCode( s2 ));
+    }
+}
+
+// String Pool Optimization: Java has a mechanism called the "string pool" that caches string literals (like "string") to improve performance. When you create strings using string literals, they are typically checked against the pool to see if an identical string already exists. If it does, the existing object is reused, and both variables would point to the same object in memory.
+
+// new String() Constructor: However, the new String() constructor bypasses the string pool optimization. It explicitly creates a new String object in memory every time it's used, even if the content is the same as an existing string literal. So, in this case, s1 and s2 will likely hold references to separate String objects, even though they have the same value "string".
+
+
+
+
+//Thread
+
+// A thread is a flow of execution within a program
+class A extends Thread{
+public void run()
+  {
+    for( int i=1; i<210; i++)
+   {
+    System.out.println("hi");
+   }
+  }
+  }
+  class B extends Thread{
+  public void run()
+    {
+      for( int i=1; i<210; i++)
+     {
+      System.out.println("hello");
+     }
+    }
+    }
+public class Main{
+  public static void main(String[] args) {
+    A t1=new A();
+    B t2=new B();
+    t1.start();
+    t2.start();
+  }
+}
+
+
+//This
+
+
+
+class Person {
+String name;
+int age;
+
+public Person(String name, int age) {
+this.name = name; 
+this.age = age;
+}
+
+
+int showa(int age){
+return this.age;//18
+}
+  int showb(int age){
+  return age;//22
+  }
+
+}
+
+
+
+public class Main
+{
+  public static void main(String[] args) {
+
+    Person p =new Person("SK", 18);
+    System.out.println(p.name+ " "+p.age);
+     System.out.println(p.showa(22));
+      System.out.println(p.showb(22));
+  }
+}
+
+
+
+
+//Final
+
+
+class Animal {
+  public final void bark() {
+    System.out.println("Generic animal sound");
+  }
+}
+class Dog extends Animal {
+  // Cannot override makeSound() because it's final
+  // public void makeSound() { ... }
+
+  public void bark() {
+    System.out.println("Woof!"); // Overrides the superclass method
+  }
+}
+
+
+
+public class Main {
+  public static void main(String[] args) {
+    Animal a= new Animal();
+    Dog d= new Dog();
+     a.bark(); 
+     d.bark();
+  }
+}
+
+
+
+//Abstraction-in-java
+
+
+// Abstract base class Animal
+abstract class Animal {
+    // Fields
+    private String name;
+
+    // Constructor
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    // Concrete method
+    public void display() {
+        System.out.println("Animal Name: " + name);
+    }
+
+    // Abstract method
+    abstract void eat();
+
+    // Abstract method
+    abstract void makeSound();
+}
+
+// Dog class derived from Animal
+class Dog extends Animal {
+    public Dog(String name) {
+        super(name);
+    }
+
+    @Override
+    void eat() {
+        System.out.println("Dog eats Chicken");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+// Cat class derived from Animal
+class Cat extends Animal {
+    public Cat(String name) {
+        super(name);
+    }
+
+    @Override
+    void eat() {
+        System.out.println("Cat eats Fish");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog("Buddy");
+        dog.display(); // Calls Animal's concrete method
+        dog.eat();     // Calls Dog's overridden eat() method
+        dog.makeSound(); // Calls Dog's overridden makeSound() method
+
+        Cat cat = new Cat("Whiskers");
+        cat.display(); // Calls Animal's concrete method
+        cat.eat();     // Calls Cat's overridden eat() method
+        cat.makeSound(); // Calls Cat's overridden makeSound() method
+    }
+}
+
+
+
+
+//Why-Heap
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the length of the array:");
+        int n = sc.nextInt();
+        int[] array = new int[n];
+        // Now you can use the array
+    }
+}
+
+
+//String-Immutable
+
+public class Main {
+    public static void main(String[] args) {
+        String s = "ABC";
+        System.out.println("The address of the string is: " + System.identityHashCode(s));
+
+        s = "ABCXYZ";
+        String x="ABC";
+        System.out.println("The address of the string is: " + System.identityHashCode(s));
+        System.out.println("The address of the string is: " + System.identityHashCode(x));
+    }
+}
+
+
+
+//String-Mutable
+
+#include<iostream>
+using namespace std;
+
+
+
+int main() {
+    string s="ABC";
+    cout << "The address of the string is: " << &s << endl;
+    s="ABCXYZ";
+    cout << "The address of the string is: " << &s << endl;
+
+
+    return 0;
+}
+
+
+//Virtual-Function-Late-Binding
+
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+  // Declare the method as virtual for late binding
+  virtual void sound() { cout << "The animal makes a sound." << endl; }
+};
+
+class Dog : public Animal {
+public:
+  void sound() override { cout << "The dog barks." << endl; }
+};
+
+int main() {
+  // Create a pointer to Animal
+  Animal *dog = new Dog();
+
+  // Use the object
+  dog->sound(); // This will call Dog::sound() due to late binding
+
+  // Don't forget to delete the object to free up memory
+  // delete dog;
+
+  return 0;
+}

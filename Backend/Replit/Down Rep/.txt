@@ -1,0 +1,1589 @@
+// Object.js
+
+const a={
+id : 001,
+Name : 'Rohit',
+Role : "Dev"}
+a['salary']=20000
+a['Role']='Tester'
+
+console.log(a)
+console.log(a.Name)
+console.log(a['Name'])
+
+
+let b=promt("what's your age?")
+b=Number.parseInt(b)
+if(b>0){
+alert("This is a Valid age")}
+
+
+//Basics
+
+console.log('Hello Shubhradeep')
+// var a='original' //Global Scope
+// {
+//   console.log(a) //original
+//   var a='change'
+//   console.log(a)//change
+// }
+// console.log(a)//change
+
+ let a='original'
+//let can updated but not re declear
+{
+  //let is block scope, 
+  let a='change'
+  console.log(a)
+}
+ console.log(a)
+let c;
+
+try{
+const c=9}
+catch (err) {
+  console.log(err) } // c is not declear
+console.log(c)
+
+
+//Prompt.js
+
+
+let b=prompt("what's your age?")
+b=Number.parseInt(b)
+if(b>0){
+alert("This is a Valid age")}
+
+
+//Loop js
+
+
+/* For in loop  commonly used for iterating over the keys (property names) of an object, including arrays and objects.
+
+It's not recommended for iterating over arrays, as it may have unexpected behavior when used with arrays due to its interaction with prototype properties.*/
+
+/*const arr=[10,2,3,4]
+for(let k of arr){
+console.log(k)}*/
+
+const B=[ //A is a array
+{name : "a",id: 1},
+{name : "b",id: 2},
+{name : "c",id: 3},
+];
+for(let n in B){
+console.log(B[n]) // typrof console.log(typeof(B[n]))  object
+}
+
+
+
+const arr=[10,2,3,4]
+for(let k in arr){
+console.log(k)}
+
+
+const obj = { a: 10, b: 2, c: 3 };
+for (let key in obj) {
+  console.log(key, obj[key]);
+}
+
+
+/*Use for...of to iterate over the values of iterable objects, such as arrays and strings. It provides a cleaner syntax and is safer for array iteration.*/
+
+const array = [1, 2, 3];
+for (let value of array) {
+  console.log(value);
+  
+}
+
+const A=[ //A is a array
+{name : "a",id: 1},
+{name : "b",id: 2},
+{name : "c",id: 3},
+];
+for(let n of A){
+console.log(n)}
+
+//Function.js
+
+
+var a1=()=>{
+console.log("Without arguement")}
+a1();
+
+var a2 = (a) => {
+    console.log('With argument=' + a);
+}
+let a = 5;
+// Always declear parameter before function call
+a2(a);
+
+
+
+
+var a3 = (a) => {
+    console.log('With argument & return=' + a);
+return a+5;
+
+}
+
+
+console.log(a3(a));
+
+
+
+//DOM
+
+//console.log(document)
+//console.log(document.body)
+
+let color=prompt("Enter the background color")
+document.body.style.background=color
+
+
+let runagain=true
+
+const candrive =(age)=>{
+return age>=18}
+
+while(runagain){
+let age=prompt('Write your age ?')
+age=Number.parseInt(age)
+
+
+if(age<0){
+console.error("INVALIDINPUT")
+break;
+}
+
+if (age == 0) {
+  location.href = "https://chat.openai.com/";
+break;
+
+}
+
+if(candrive(age)){
+alert('You Can Drive')}
+else{
+alert('You are underage')}
+
+
+runagain=confirm('Do u want to run again?')
+}
+
+
+
+
+
+/*let age=prompt('Write your age ?')
+age=Number.parseInt(age)
+
+const candrive =(age)=>{
+return age>=18}
+if(candrive(age)){
+alert('You Can Drive')}
+else{
+alert('You are underage')}*/
+
+
+
+
+
+
+//DOM Example Element
+
+//index.html
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<nav>
+  <ul>
+    <li>Home</li>
+    <li>Hire Me</li>
+    <li>About</li>
+  </ul>
+</nav>
+ <div class="container">
+   <p> Hello Shubhradeep </p>
+ </div>
+  <script src="script.js"></script>
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+
+</html>
+
+
+//Script.js
+// console.log(document.body.childNodes)
+// console.log(document.body.childNodes[document.body.childNodes
+// .length-1])
+// let arr=Array.from(document.body.childNodes)
+// console.log(arr)
+
+
+let b=document.body
+console.log(b.firstElementChild)
+const changebg = () =>
+{
+  b.firstElementChild.style.background="seagreen"
+}
+console.log(changebg ())
+
+
+
+
+//Alll in one
+
+// console.log("Hello")
+// const a=null
+// const v="s"
+// let s="TYY"
+//  console.table([a,v,s])
+ //console.log(typeof(a)) //object
+
+// *** spread operator
+
+// const a1=[1,2,3,4]
+// const a2=["sman","bman","iman"]
+// const a3=[1.0,9.6,78.9]
+// const mix=[...a1,...a2,...a3]
+// console.log(mix)
+//*** array into object
+// const obj={
+//     arr:[1,2,3]
+// }
+// console.log(obj.arr[1])
+// console.log(Object.keys(obj)) // return a array
+// console.log(Object.values(obj))
+
+//******Object Destructure
+// const bioData = {
+//     name: "vinod",
+//     age: 26,
+//     deg: 'MCS',
+//     fullname: {
+//         fname: "SHu",
+//         last: "Ma"
+//     }
+// }
+// let { name: myname, age, deg, fullname: f } = bioData;
+// console.log(` My name is ${myname}, My age is ${age}
+//              and My highest qual, is ${deg}, Fullname ${f.fname + " " + f.last} `)
+
+ 
+//****** spread object
+  // const full= {
+  //               fname: "SHu",
+  //               last: "Ma"
+  //           }       
+  //           const bio = {
+  //               name: "vinod",
+  //               age: 26,
+  //               deg: 'MCS'}
+  //  
+//console.log(sp={...full,...bio})
+       //{ fname: 'SHu', last: 'Ma', name: 'vinod', age: 26, deg: 'MCS' }
+
+            
+  //********** */  // ***immediately invoke funx (IIFE)       
+// (function a1(){
+//     console.log("Running invoke")
+// })();
+// // ; is used to end the exucution of code
+// ((name)=>{
+//     console.log("Running invoke2nd "+name )
+// })("SHUBHRA");
+
+// ((name2)=>{
+//     console.log(`Running invoke3nd ${name2} `)
+// })("RAHUL")
+
+
+      //******for of loop 
+// const greetings = "Hello world!"
+//  for (const greet of greetings) {
+//      console. log(`Each char is ${greet}`)}
+  
+  //Map **
+
+//   const map = new Map ()
+// map.set ('IN', "India")
+// map. set( 'USA', "United States of America")
+// map. set ('Fr', "France")
+// map.set ('IN', "India")
+
+// console. log (map);
+// output
+// Map(3) {
+//     'IN' => 'India',
+//     'USA' => 'United States of America',
+//     'Fr' => 'France'
+//   }
+
+
+// for (const key of map) {
+//     console.log(key); // give array str //[ 'IN', 'India' ]
+// }
+
+// for (const [key, value] of map) {
+//     console.log(key, ':-', value);
+// }
+
+// for in loop return keys(in array index), and in for of loop returns value
+   //***For in loop  (for of loop doesn't iterate in object)
+//    const myObject = {
+//     js: 'javascript',
+//     cpp: 'C++',
+//     rb: "ruby",
+//     swift: "swift by apple"
+//    }  
+//     for (const key in myObject) {
+//     console.log(`${key} -> ${myObject[key]}`)
+// } 
+        //For each doesn't return anything
+// const coding = [
+//     {
+//     languageName: "javascript",
+//     languageFileName: "js"
+// },
+// {
+//     languageName: "cpp",
+//     languageFileName: "c++"
+// },
+// {
+//     languageName: "ruby",
+//     languageFileName: "r"
+// },]
+//  coding.forEach( (item, index, arr)=> {
+//  console.log(item.languageName, index);})
+
+  //*** FIlter */
+
+   const myNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// const newNums = myNums.filter( (num) => num>=5)
+//console.log(newNums)
+//[ 5, 6, 7, 8, 9, 10 ]
+
+   //*** */ Map method
+
+//  const newNum = myNums.map( (num) => num>=5)
+//  console.log(newNum)
+//  [
+//   false, false, false,
+//   false, true,  true,
+//   true,  true,  true,
+//   true
+// ]
+
+     // without fliter 
+//  const newNums=[]
+// myNums.forEach( (num) => {
+// if (num > 4) {
+// newNums .push(num)}
+// })
+// console.log (newNums);
+
+     //****Chaning */
+
+     const myNumers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+//const newNums = myNumers.map( (num) => { return num + 10})
+    // [11, 12, 13, 14, 15,]
+    
+
+  //Filter use for condition check, where map use for operation on each value and return it
+// const newNums = myNumers
+//                 .map((num) => num * 10 )
+//                 .map( (num) => num + 1)
+//                 .filter( (num) => num >= 40)
+// console.log(newNums);
+
+//All Dom
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS | DOM</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+    <div id="main" class="domClass">
+        DOM
+    </div>
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName) {
+        const div = document.createElement('div')
+        div.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(div)
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+    //Edit
+    const secondLang = document.querySelector("div:nth-child(3)")
+    //console.log(secondLang);
+    //secondLang.innerHTML = "Mojo"
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+    // //edit
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    // //remove
+    //  const lastLang = document.querySelector('li:last-child')
+    //  lastLang.remove()
+
+
+
+    // //get attribute
+
+    // let title=document.getElementById('main')
+    
+    // title.style.backgroundColor='red'
+    // 'red'
+    // title.style.borderRadius='15px'
+// '15px'
+    // title.style.padding='15px'
+  // '15px'
+   
+                   ///// querySelectorAll & ForEach Loop
+
+    // document.querySelectorAll('div')
+// NodeList(3) 
+    // let list=document.querySelectorAll('div')
+      
+    // list[1].style.color='yellow'
+    // 'yellow'
+
+    // list.forEach( (l)=>{
+    //     l.style.color='blue'})
+       
+
+    ///// getElementsByClassName  & Convert html collection into array
+
+//let il= document.getElementsByClassName('language')
+    // il
+    // HTMLCollection 
+
+    // let myar=Array.from(il)
+    //myar.forEach( (a)=>{
+    //  a.style.color='pink'})
+  
+
+
+
+
+
+    //  const parent = document.querySelector('.language')
+    // parent.children
+    // HTMLCollection(3) [li, div, li]
+
+    // parent.children[2].innerHTML
+    // 'Mojo'
+
+    // for (let i = 0; i < parent.children.length; i++) {   console.log(parent.children[i].innerHTML);}
+    // : TypeScript
+    // : python
+    //: Mojo
+
+
+    //  parent.children[1].style.color = "orange"
+    // 'orange'
+
+    // parent.lastElementChild
+    // <li>​…​</li>​::marker​"Mojo"</li>​
+
+    //  document.querySelector('li').parentElement
+    // <ul class=​"language" style=​"color:​ pink;​">​…​</ul>​
+
+    //  document.querySelector('li').nextElementSibling
+    // <div style=​"color:​ orange;​">​python​</div>​
+
+
+    //// ChildNodes
+
+
+    // "NODES: ", parent.childNodes
+    // NodeList(5) [text, li, text, div, li]
+
+       /////Set class name and id
+
+    // let l=document.querySelector('li')
+    // l
+    // <li>​…​</li>​
+    // l.className='listel'
+    // 'listel'
+    // l.id=Math.round(Math.random() * 10 )
+    // 8
+
+      ////  Set attributes by custom 
+
+      
+    // l.setAttribute("title", "TiTlE")
+    // undefined
+    // l.getAttribute('title')
+    // 'TiTlE'
+
+
+
+
+</script>
+
+</html>
+
+//Scope.js
+
+function myFunction() {
+  var functionVar = "I'm inside a function";
+
+  console.log(functionVar); // Accessible here
+}
+
+myFunction(); // Output: I'm inside a function
+console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+
+if (true) {
+  var blockVar = "I'm inside a block";
+  var blocklet = "let inside a block";
+  const blockConst = "I'm also inside a block";
+  console.log(blockVar); // Accessible here
+  console.log(blockConst); // Accessible here
+}
+
+console.log(blockVar); //Accessible
+console.log(blocklet); // Uncaught ReferenceError: blockVar is not defined
+// console.log(blockConst); // Uncaught ReferenceError: blockConst is not defined
+
+
+//This.js
+
+//this(contex) only works in objects not in funx
+
+function chai() {
+  let username = "hitesh";
+  console.log(this.username); //undefined
+}
+
+chai();
+
+// const chai =  () => {
+//     let username = "hitesh"
+//     console.log(this); //{}
+// }
+// chai()
+
+const user = {
+  username: "hitesh",
+  price: 999,
+
+  welcomeMessage: function () {
+    console.log(`${this.username} , welcome to website`);
+    console.log(this);
+  },
+};
+
+user.welcomeMessage(); // object context with "hitesh"
+user.username = "sam";
+user.welcomeMessage(); // object context with "Sam"
+
+console.log(this);
+
+
+//async In DOM
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Javascript</h1>
+    <button id="start1">Start</button>
+    <button id="stop1">Stop</button>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+
+
+    const changeText =()=>{
+        document.querySelector('h1').innerHTML = "best JS series"
+    }
+
+    let changeMe = null;
+//TIME OUT
+        document.querySelector('#start1').addEventListener('click', () => {
+            if (!changeMe) { // Start the interval only if it's not already running
+            changeMe = setTimeout(changeText, 2000);
+                console.log("START");
+            }
+        });
+
+        document.querySelector('#stop1').addEventListener('click', () => {
+            if (changeMe) { // Clear the interval only if it's running
+                clearTimeout(changeMe);
+                changeMe = null; // Reset the intervalId
+                console.log("STOP");
+            }
+        });
+
+
+
+
+    const sayDate = function(str) {
+            console.log(str, Date.now());
+        };
+
+
+
+    let intervalId = null;
+// TIME INTERVAL
+        document.querySelector('#start').addEventListener('click', () => {
+            if (!intervalId) { // Start the interval only if it's not already running
+                intervalId = setInterval(sayDate, 5000, "hi");
+                console.log("START");
+            }
+        });
+
+        document.querySelector('#stop').addEventListener('click', () => {
+            if (intervalId) { // Clear the interval only if it's running
+                clearInterval(intervalId);
+                intervalId = null; // Reset the intervalId
+                console.log("STOP");
+            }
+        });
+
+</script>
+</html>
+
+
+//async.js
+
+
+//Call Back
+function add(a, b) {
+  return a + b;
+}
+
+function display(x,y,operation){
+  var r=operation(x,y)
+  console.log(r)
+}
+display(2,3,add) //display() is higher order funx
+//add() is callback funx
+
+// OR we can pass the function as a parameter
+
+//  display(x,y, (a,b)=>{
+//     return a+b;
+// })
+
+
+
+
+//Set Timeout
+
+
+
+// setTimeout(()=> {
+//     document.getElementById("demo").innerHTML = "I love You !!";
+//   }, 3000);
+
+
+//Call Back Hell 
+
+function getData(dataId, getNextData) {
+setTimeout(()=>{
+    console.log("data", dataId);
+     getNextData();
+          },5000);
+}
+
+getData(1, ()=> {
+  console.log("data 2...")
+   getData(2,()=>{
+     console.log("data3...")
+       getData(3,()=>{
+         console.log("data4...")
+           getData(4)
+         });
+    });
+});
+
+//Inversion of Control (IoC)=> We are blindly trusting the callback function to do the job.Giving control to the callback function.
+
+const cart = ["shoes", "pants"];
+
+api.createOrder(cart,  ()=> {
+    api.proceedToPayment(function () {
+        api.showOrderSummary(function () {
+            api.updateWallet();
+        });
+    });
+});
+
+// Promise 
+
+function getData(dataId) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("data", dataId);
+            resolve();
+        }, 5000);
+    });
+}
+
+getData(1)
+    .then(() => {
+        console.log("data 2...");
+        return getData(2);
+    })
+    .then(() => {
+        console.log("data3...");
+        return getData(3);
+    })
+    .then(() => {
+        console.log("data4...");
+        return getData(4);
+    });
+
+
+//Console
+
+// let promise=getData(10)
+// promise =>
+// Promise {<pending>} 
+// [ [Prototype)):Promise
+// ( (PromiseState) :"pending"
+// [ (PromiseResutt)l: undefined
+    
+// After 5 sec when the promise is resolved =>
+//     Promise 'success'}
+//     ( [Prototype)):Promise
+//     ( (PromiseStateJ:"fulfilled"
+//     ( (PromiseResult)): "success"
+
+    
+
+
+const getPromise= ()=>{
+    return new Promise((resolve,reject)=>{
+        console.log("I am  a Promise");
+        //resolve("Sucess")
+        //reject("Error")
+    })
+}
+
+let promise=getPromise()
+    promise.then((res)=>{
+        console.log("promise Fullfilled",res)
+    })
+promise.catch((err)=>{
+    console.log("Promise Failed",err)
+})
+
+
+
+// Promise Chain
+
+
+function getData(dataId){
+    return new Promise((resolve,reject)=>
+        {
+            setTimeout(()=>{
+                console.log("data", dataId);
+                resolve("Sucess");
+                //reject("ERROR 404")
+                      },5000);
+        })
+}
+
+//Chaining.....
+
+getData(1)
+    .then( (res) => {
+        console.log( res)
+    getData(2)
+        .then((res)=>{
+           console.log( res)
+            })
+})
+
+// Inprovement of code...
+getData(1)
+  .then((res) => {
+    console.log(res);
+    return getData(2); // Return the next Promise
+  })
+  .then((res) => {
+    console.log(res);
+    // Add any further steps here if needed
+  })
+  .catch((error) => {
+    console.error("An error occurred:", error);
+  }).finally(()=> console.log("Finally Suceed code run"));
+
+
+
+
+
+createorder(cart)
+ .then( (orderId) => proceedToPayment(orderId))
+ . then((paymentInfo) => showOrderSummary(paymentInfo))
+ . then((paymentInfo) => updateWallet(paymentInfo));
+
+
+// Async- await
+
+const getAll = async () => {
+    await getData(1)
+    await getData(2)
+};
+getAll()
+    
+// IIFE
+    
+(async () => {
+    await getData(1);
+    await getData(2);
+})();
+
+// Adsync-await can't handel error so we need try catch block
+
+(async () => {
+  try 
+  {
+    await getData(1);
+    await getData(2);
+  } catch (error) {
+    console.error("Error:", error);
+    // Handle the error here, e.g., retry, log, or throw
+  }
+})();
+
+
+
+
+
+// Lexical Scoping => if a funx define inside another funx then it can access the outer funx variable or memory declear in the outer funx
+
+// function outer() {
+//   let name = "outer";
+//   function inner() {
+//     console.log(name);
+//   } 
+//   inner()
+// }
+
+// outer();
+
+
+//Executioncontext.js
+
+//https://javascript.plainenglish.io/mastering-the-basics-understanding-javascripts-execution-context-and-memory-components-84de14f5b619
+
+
+// Hoisting in JavaScript =>
+// Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their scope before code execution. This means you can use a function or variable before it is declared in your code
+
+
+// console.log(a) //Undefined
+// var a=7;
+
+// console.log(a) //ReferenceError:Cannot access before initialize
+//  let a=7;
+//*** a is hoisted in a seperate space and also assin undefined but not initilized that is called temporal dead zone,
+
+
+
+
+// All of these value to the variable allocated even we have started exucution
+
+getName(); //5 Javascript
+console.log(x); //Undefined
+console.log(getName); //[Function :getname]
+console.log(afunx); // Undefined
+
+var x = 7;
+
+function getName() {
+  let a = 5;
+  console.log(a + " Javascript");
+  //x + " Javascript" => Undefined Javascript
+}
+var afunx =()=>(console.log(x));
+console.log(x);  // 7
+
+//*** Lexical Environment: A JavaScript Cornerstone =>
+// A lexical environment is essentially a data structure that stores variables and functions defined in a specific scope, along with a reference to its outer lexical environment.
+
+//Scope in JavaScript defines the region of your code where a variable is accessible. It determines where you can use a specific variable and where it's out of reach.
+
+function a(){
+  var x=10;
+  b();
+  function b(){
+    console.log(x);
+  }
+}
+a() // 10
+
+
+// Var Vs Let
+ // var attached to the global(Window) object
+
+var a=10;
+let b=5;
+window.a //10
+window.b // undefined { treated as other variable which is not defined *** Like: window.k= Undefined}
+
+// Syntax error: Identifier 'a' has already been declared
+console.log("Hello")
+let a=6
+let a=9 // Not even a single line will execute
+
+
+// Syntax error: Identifier 'a' has already been declared
+// Can't redeclare block-scoped variable 'a'
+var a=6;
+let a=9
+console.log(a)
+//
+console.log("Hello")
+let a=6;
+{
+let a=9
+console.log(a) //9
+}
+console.log(a) //6
+//
+console.log("Hello")
+let a=6;
+{
+ a=9
+}
+console.log(a)//9
+//Const
+//SyntaxError: Missing initializer in const declaration
+const a;
+a=100
+//Syntax Error
+const a=100
+const a=1000
+
+//TypeError: Assignment to constant variable.
+const a=100
+a=1000
+
+
+
+// Closure in JavaScript => Funx + lexical Scope
+
+// Closure is a function that has access to the parent scope even after the parent function has closed.
+function outer() {
+  let name = "outer";
+  function inner() {
+    console.log(name);
+  }
+  name = "new value"; // modify the name variable
+  return inner;
+}
+
+const innerFunc = outer(); // After the outer function has closed, the outer function is gone from the Execution Context But..........
+console.log(innerFunc) // [Function: inner] and this funx have the acess of the parent scope or lexical scope so the last line executed
+innerFunc() // new value
+
+
+
+
+
+
+
+for (let i =0;i<2;i++){
+setTimeout(()=> console.log(i) )} // 0 1
+// Let is block scope, let creates a new variable for each loop iteration, so the value of i is different for each iteration.
+//**    Explanation =>
+{
+  //overall
+  let i=0
+  {
+    //scope 1
+    //New scope have their own let coppied from last scope
+    let i;
+    i=0;
+    //(if=> Condition check ) //0
+    //setTimeout(()=> console.log(i) )}  This i is from this scope only
+    //*** if we do i++ here then the **Settimeout will print 1
+  }
+  {
+    //scope 2
+    //New scope have their own let coppied from last scope
+    let i;
+    i=0;
+    i++; // instead of run end of the 1st iteration it will run start of the 2nd iteration
+    
+    //(if=> Condition check ) //1
+    //Run SetTimeout()
+  }
+  {
+    //scope 2
+    //New scope have their own let coppied from last scope
+    let i;
+    i=1;
+    i++; // instead of run end of the 2ndt iteration it will run start of the 3rd iteration
+
+    //(if=> Condition check ) //2
+    //setTimeout(()=> console.log(i) )}  This i is from this scope only
+  }
+}
+
+for (var i =0;i<2;i++){
+setTimeout(()=> console.log(i) )} // 2 2
+// Var declear in global scope so when the asyncronum settimeout run at that point of time for loop will be executed and the value of i will be collected from the global scope
+
+// VAR algo
+var index = 0;
+//1st
+if (index < 0) {
+  setTimeout(() =>console.log( index));
+  //This index is from global
+}
+
+index++
+// in global scope index=1
+// 2nd 
+if (index < 10) {
+  setTimeout(()=> console.log( index));
+}
+
+index++
+// in global scope index=2
+// 3nd 
+if (index < 10) {
+  setTimeout(()=> console.log( index));
+
+  
+}//**** VVI
+function x() {
+  //for (var i = 1; i <= 5; i++)  // 6 6 6 6 6 6
+   for (let i = 1; i <= 5; i++) // 1 2 3 4 5
+   {
+    setTimeout(function() {
+      console.log(i);
+    }, i * 1000);
+  }
+  console.log("Js");
+}
+x();
+
+function x() {
+  for (var i = 1; i <= 5; i++)  // 
+    {
+   function close(x){
+    setTimeout(function() {
+      console.log(x);
+    }, x * 1000);
+  }
+  close(i);
+}
+  console.log("Js");
+}
+x();
+
+
+// Starvation in JavaScript
+// We know Micro task queue have more priority than call back queue, if any case the micro task creates a new micro task then other micro task goes on on and on    Then the task in the call back queue will never be executed.
+
+
+
+
+
+//revision
+
+// console.log("Hello")
+
+// const a=null
+// const v="s"
+// let s="TYY"
+// ***console.table([a,v,s])
+// ┌─────────┬────────┐
+// │ (index) │ Values │
+// ├─────────┼────────┤
+// │    0    │  null  │
+// │    1    │  's'   │
+// │    2    │ 'TYY'  │
+// └─────────┴────────┘
+// console.log(typeof(a)) //object
+
+// *** spread operator
+
+// const a1=[1,2,3,4]
+// const a2=["sman","bman","iman"]
+// const a3=[1.0,9.6,78.9]
+// const mix=[...a1,...a2,...a3]
+// console.log(mix)
+
+//[ 1, 2, 3, 4, 'sman', 'bman','iman', 1,9.6,78.9]
+
+// let arrl =[6,7,9]
+// let obj1={...arrl}
+// console.log(...arrl) // 6 7 9
+// console.log(obj1) //{ '0': 6, '1': 7, '2': 9 }
+
+// function sum(vl, v2, v3) {
+// return vl + v2 + v3}
+
+// console.log( sum(...arrl))
+
+//*** array into object
+// const obj={
+//     arr:[1,2,3],
+//     str: "Shubhra"
+// }
+// console.log(obj.arr[1]) //2
+// console.log(Object.keys(obj)) // return a array  of keys// ['arr','str']
+// console.log(Object.values(obj))// [[1,2,3],'Shubhra'] // return a array  of values
+
+//*** Array Destructure
+
+// let arr=[4,5,8,9,0,6,90,466]
+// let [a,b, ,e,...rest]=arr
+// console.log(a,b,rest)
+
+//******Object Destructure
+
+// const obj={
+//   arr:[1,2,3],
+//   str: "Shubhra"
+// }
+// console.log(str) //Error
+// const {arr:a,str}=obj   // Extract the key
+// console.log(a) //[1,2,3]
+
+// const bioData = {
+//     name: "vinod",
+//     age: 26,
+//     deg: 'MCS',
+//     add:'Kolkata',
+
+//     fullname: {
+//         fname: "SHu",
+//         last: "Ma",
+
+//     }
+// }
+//  let { name: myname, age, deg, fullname: f } = bioData;
+//  console.log(` My name is ${myname}, My age is ${age}
+//             and My highest qual, is ${deg}, Fullname ${f.fname + " " + f.last} `)
+
+// let {proff="SDE"}=bioData //Adding Keys
+
+// console.log(`Proff is ${proff},`)
+
+//****** spread object
+
+//{ fname: 'SHu', last: 'Ma', name: 'vinod', age: 26, deg: 'MCS' }
+// const full= {
+//     fname: "SHu",
+//     last: "Ma"
+// }
+// const bio = {
+//     name: "vinod",
+//     age: 26,
+//     deg: 'MCS'}
+//     console.log(sp={...full,fname:"SHUBHRADEEP",...bio}) //changing the value of object
+
+//********** */  // ***immediately invoke funx (IIFE)
+
+// (function a1(){
+//     console.log("Running invoke")
+// })();
+// ; is used to end the exucution of code
+// ((name)=>{
+//     console.log("Running invoke2nd "+name )
+// })("SHUBHRA");
+
+// ((name2)=>{
+//     console.log("Running invoke3nd "+name2 )
+// })("RAHUL")
+
+//******for of loop
+// const greetings = "Hello world!"
+//  for (const greet of greetings) {
+//      console. log(`Each char is ${greet}`)}
+
+//Map **
+
+const map = new Map();
+map.set("IN", "India");
+map.set("USA", "United States of America");
+map.set("Fr", "France");
+map.set("IN", "India");
+
+//console. log (map);
+//output
+// Map(3) {
+//     'IN' => 'India',
+//     'USA' => 'United States of America',
+//     'Fr' => 'France'
+//   }
+
+// for (const key of map) {
+//     console.log(key); // give array str //[ 'IN', 'India' ]   //This method returns an array of an object's own enumerable property names
+// }
+
+// for (const [key, value] of map) {
+//     console.log(key, ':-', value);
+// }
+//OUTPUT
+
+// IN :- India
+// USA :- United States of America
+// Fr :- France
+
+// for in loop return keys(in array index), and in for of loop returns value
+//***For in loop  (for of loop doesn't iterate in object)
+//    const myObject = {
+//     js: 'javascript',
+//     cpp: 'C++',
+//     rb: "ruby",
+//     swift: "swift by apple"
+//    }
+//     for (const key in myObject) {
+//     console.log(`${key} -> ${myObject[key]}`)
+// }
+
+//OUTPUT
+// js -> javascript
+// cpp -> C++
+// rb -> ruby
+// swift -> swift by apple
+
+//For each doesn't return anything
+// const coding = [
+//     {
+//     languageName: "javascript",
+//     languageFileName: "js"
+// },
+// {
+//     languageName: "cpp",
+//     languageFileName: "c++"
+// },
+// {
+//     languageName: "ruby",
+//     languageFileName: "r"
+// },]
+//  coding.forEach( (item, index, arr)=> {
+//  console.log(item.languageName, index);})
+
+//*****ARRAY
+
+//FOR Of LOOP
+
+// const fruits = ["apple", "banana", "orange"];
+// for (const fruit of fruits) {
+//     console.log(`Fruit: ${fruit}`);
+// }
+// Fruit: apple
+// Fruit: banana
+// Fruit: orange
+
+//FOR in LOOP(NOT recom in array)
+
+// const colors = ["red", "green", "blue"];
+// for (const index in colors) {
+//     console.log(`Index: ${index}, Value: ${colors[index]}`);
+// }
+
+// Index: 0, Value: red
+// Index: 1, Value: green
+// Index: 2, Value: blue
+
+//FOR EACHLOOP
+
+// const names = ["Alice", "Bob", "Charlie"];
+// names.forEach(name => console.log(`Hello, ${name}!`)); //No direct control over iteration, but often concise.  Executes a callback function for each element.
+
+// for(const name of names){
+//     console.log(name)
+// }
+
+// //OUTPUT
+// Hello, Alice!
+// Hello, Bob!
+// Hello, Charlie!
+
+// Alice
+// Bob
+// Charlie
+
+//*** FIlter */
+
+//    const myNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// const newNums = myNums.filter( (num) => num>=5)
+//console.log(newNums)
+//[ 5, 6, 7, 8, 9, 10 ]
+
+//*** */ Map method
+
+//  const newNum = myNums.map( (num) => num>=5)
+//  console.log(newNum)
+//  [
+//   false, false, false,
+//   false, true,  true,
+//   true,  true,  true,
+//   true
+// ]
+
+// without fliter
+// const newNums=[]
+// myNums.forEach( (num) => {
+// if (num > 4) {
+// newNums .push(num)}
+// })
+// console.log (newNums);
+
+//****Chaning */
+
+// const myNumers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+//const newNums = myNumers.map( (num) => { return num + 10})
+// [11, 12, 13, 14, 15,]
+
+//Filter use for condition check, where map use for operation on each value and return it in a new array
+// const newNums = myNumers
+//                 .map((num) => num * 10 )
+//                 .map( (num) => num + 1)
+//                 .filter( (num) => num >= 40)
+// console.log(newNums);
+
+
+
+//Promise.js
+
+
+
+
+const promiseOne = new Promise(function (resolve, reject) {
+    //Do an async task
+    // DB calls, cryptography, network
+    setTimeout(function () {
+        console.log("Async task is compelete");
+        resolve();
+    }, 1000);
+});
+
+promiseOne.then(function () {
+    console.log("Promise consumed");
+});
+// creating promise without variable
+
+new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        console.log("Async task 2");
+        resolve();
+    }, 1000);
+}).then(function () {
+    console.log("Async 2 resolved");
+});
+
+const promiseThree = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        resolve({ username: "Chai", email: "chai@example.com" });
+    }, 1000);
+});
+
+promiseThree.then((user) => {
+    console.log(user);
+});
+
+
+// ERROR
+
+const promiseFour = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        let error = false;
+        if (!error) {
+            resolve({ username: "Shubhradeep", password: "xyz" });
+        } else {
+            reject("ERROR: Something went wrong");
+        }
+    }, 1000);
+});
+promiseFour
+    .then((user) => {
+        console.log(user);
+        return user.username;
+    })
+    .then((username) => {
+        console.log(username);
+    })
+    //then((username) => { ... }): The username returned from the previous .then() is passed here, and it is logged to the console.
+    .catch(function (error) {
+        console.log(error);
+    })
+    .finally(() => console.log("The promise is either resolved or rejected"));
+
+
+
+const promiseFive = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        let error = false;
+        if (!error) {
+            resolve({ username: "javascript", password: "123" });
+        } else {
+            reject("ERROR: JS went wrong");
+        }
+    }, 1000);
+});
+
+// *** IMIDIATE INvoke in not applicable here
+
+
+//Valid Code
+// (async () => {
+//     const response = await promiseFive;
+//     console.log(response);
+// })();
+
+const fetchData = async () => {
+    // const response = await promiseFive;
+    // console.log(response);    /// if you actually want to handle an exception. use try-catch
+    try {
+        const response = await promiseFive;
+        console.log(response);
+    } catch (error) {
+        console.log(error);
+    }
+};
+// Call the async function
+fetchData();
+
+// async function getAllUsers(){
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users')
+//        // console.log(response);
+//         const data = await response.json()
+//         console.log(data);
+//     } catch (error) {
+//         console.log("E: ", error);
+//     }
+// }
+
+// getAllUsers()
+
+fetch("https://api.github.com/users/Shubhradeepp")
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        // console.log(data.id);
+        return data.login;
+    })
+    .then((name) => {
+        console.log(name);
+    })
+    .catch((error) => console.log(error));
+
+
+/////
+
+const promiseFour = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        let error = false;
+        if (!error) {
+            resolve({ username: "Shubhradeep", password: "xyz" });
+        } else {
+            reject("ERROR: Something went wrong");
+        }
+    }, 1000);
+});
+
+
+promiseFour
+.then((user) => {
+    console.log(user);
+    return user.username;
+})
+.then((username) => {
+    console.log(username);
+})
+.catch(function (error) {
+    console.log(error);
+})
+.finally(() => console.log("The promise is either resolved or rejected"));
+
+
+async function handlePromise() {
+    try {
+        const user = await promiseFour;
+        console.log(user);
+        console.log(user.username);
+    } catch (error) {
+        console.log(error);
+    } finally {
+        console.log("The promise is either resolved or rejected");
+    }
+}
+handlePromise();
+
+
+
+
+
+
+
+
+
+//Fetchapi.js
+
+
+async function getAllUsers(){
+  try {
+      const response = await fetch("https://api.github.com/users/Shubhradeepp")
+      // console.log(response);
+      const data = await response.json()
+    //It takes time to convert the data to json format.
+      console.log(data);
+  } catch (error) {
+      console.log("E: ", error);
+  }
+}
+
+getAllUsers()
+
+//optimized code
+fetch("https://api.github.com/users/Shubhradeepp")
+.then((response) => response.json())
+.then((data) => console.log(data.login , data.id))
+.catch((error) => console.log("Error 404", error))
+.finally(()=>console.log("This is the end of the code"))
+
+
+
+
+

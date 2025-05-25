@@ -1,0 +1,338 @@
+//Accenture 1
+
+/*
+     Integer p,q,r
+     Set p=1, q=4, r=5
+     for (each r from 3 to 7 )
+         p=(q^11)+q
+     End for
+     r=(q+r)+r
+     q=6+q
+    for(each r from 3 to 4 )
+          q=(r+7)&p
+     End for
+Print p+q   */
+
+#include <iostream>
+
+int main() {
+    int p, q, r;
+    p = 1;
+    q = 4;
+    r = 5;
+
+    for (r = 3; r <= 7; r++) {
+        p = (q ^ 11) + q;
+    }
+
+    r = (q + r) + r;
+    q = 6 + q;
+
+    for (r = 3; r <= 4; r++) {
+        q = (r + 7) & p;
+    }
+
+    std::cout << p + q << std::endl;
+    
+    return 0;
+}
+
+
+
+//accenture 2
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int a1[] = {1, 2, 3};
+    int a2[] = {3, 4, 5};
+    int a3[] = {4, 7, 8};
+    
+    unordered_map<int, int> mp;
+    int count1 = 0, count2 = 0, count3 = 0;
+    
+    for (auto it : a1) {
+        mp[it]++;
+    }
+
+    for (auto it : a2) {
+        mp[it]++;
+    }
+
+    for (auto it : a3) {
+        mp[it]++;
+    }
+
+    for (auto x : mp) {
+        if (x.second == 1) {
+            for (auto it : a1) {
+                if (x.first == it)
+                    count1++;
+            }
+
+            for (auto it : a2) {
+                if (x.first == it)
+                    count2++;
+            }
+
+            for (auto it : a3) {
+                if (x.first == it)
+                    count3++;
+            }
+        }
+    }
+
+    vector<int> v;
+    v.push_back(count1);
+    v.push_back(count2);
+    v.push_back(count3);
+
+    for (auto it : v)
+        cout << it << " ";
+
+    return 0;
+}
+
+
+//return work
+
+public class Main {
+
+    public static void main(String[] args) {
+        int a = 0;
+        int b = 1;
+        int result = funn(a, b);
+        System.out.println(result);
+    }
+
+    public static int funn(int a, int b) {
+        if ((5 & b) < (2 - a) && (1 & b) > (b - 1)) {
+            b = b + 3; //4
+            b = b + 2; //6
+            a = b + 3; //9
+            return funn(b , b + 1); // 6, 7
+        }
+        return a; // 6
+    }
+}
+
+
+
+//Replace-All-Occurrences-of-a-Substring-with-a-New-String
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+void modifyString(string& original, string& target,
+				string& news)
+{
+    int pos = 0;
+
+    while ((pos = original.find(target)) != string::npos) {
+        original.replace(pos, target.length(), news);
+        pos += news.length();
+    }
+
+    cout << original << endl;
+}
+int main() {
+  string original;
+  string target ;
+  string news;
+  getline(cin,original);
+  getline(cin,target);
+  getline(cin,news);
+  modifyString(original,target,news);
+return 0;
+  
+}
+
+
+//Perfect-integer
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool perfect(int num){
+  int r=num;
+  while(num){
+  int k=num%10;
+  if(r%k!=0)
+    return false;
+  num/=10;
+  }
+  return true;
+}
+
+vector<int> funx(int x, int y){
+  vector<int> res;
+  for(int i=x;i<=y;i++){
+    if(perfect(i))
+      res.push_back(i);
+  }
+  return res;
+}
+
+int main() {
+  int x,y;
+  cout<<"Input"<<endl;
+  cin>>x>>y;
+  
+ vector <int> k=funx(x,y);
+  for(auto it: k){
+    cout<<it<<" ";}
+  cout<< endl;
+  return 0;
+}
+
+
+//mid-point
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int findIndexWithEqualSum(std::vector<int>& arrayA, std::vector<int>& arrayB) {
+    int totalSumA = 0;
+    int totalSumB = 0;
+    
+    // Calculate the total sum of both arrays
+    for (int num : arrayA) {
+        totalSumA += num;
+    }
+    
+    for (int num : arrayB) {
+        totalSumB += num;
+    }
+    
+    // Initialize left and right sums
+    int leftSum = 0;
+    int rightSum = 0;
+    
+    // Iterate through array A from left to right and array B from right to left
+    for (int i = 0; i < arrayA.size();i++ ) {
+        leftSum += arrayA[i];
+        rightSum += arrayB[i];
+        
+        // Compare left and right sums
+        if (leftSum == totalSumA/2 && rightSum==totalSumB/2) {
+            return i; // Return the index where the sums are equal
+        } 
+    }
+    
+    // If no such index is found, return -1
+    return 0;
+}
+
+int main() {
+    std::vector<int> arrayA = {3, 2, 1, 1, 5};
+    std::vector<int> arrayB = {1, 7, 8, 0, 10};
+    
+   std::cout<< findIndexWithEqualSum(arrayA, arrayB);
+    
+    
+    return 0;
+}
+
+
+
+//Bentley2
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int countStepsToZero(string str) {
+    int steps = 0;
+    int n = str.length();
+int po=0,digit=0;
+    
+    for (int i = n - 1; i >= 0; i--) {
+        
+        if (str[i] == '1') {
+          digit+= pow(2,po);
+            }
+            po++;
+    }
+    while(digit){
+        if(digit%2==0){
+            digit/=2;
+            steps++;
+        }
+        
+        else{
+        digit-=1;
+         steps++;}
+    }
+
+    return steps;
+}
+
+int main() {
+    string binaryStr="0011100";
+   
+
+    int steps = countStepsToZero(binaryStr);
+    cout << "Number of steps required to convert to 0: " << steps << endl;
+
+    return 0;
+}
+
+
+
+//Upper-lower-in-Char-array
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+char* convertToUppercase(char str[]) {
+    char* uppercaseStr = new char[strlen(str) + 1];
+
+    // for (int i = 0; str[i] != '\0'; i++) {
+    //     if (std::islower(str[i]))
+    //         // Convert lowercase to uppercase
+    //         uppercaseStr[i] = std::toupper(str[i]);
+    //     else if (std::isupper(str[i]))
+    //         // Convert uppercase to lowercase
+    //         uppercaseStr[i] = std::tolower(str[i]);
+    //     else
+    //         // Keep non-alphabetic characters unchanged
+    //         uppercaseStr[i] = str[i];
+    // }
+  for (int i = 0; str[i] != '\0'; i++) {
+      uppercaseStr[i] = std::islower(str[i]) ? std::toupper(str[i]) : std::tolower(str[i]);
+  }
+    uppercaseStr[strlen(str)] = '\0';
+
+    return uppercaseStr;
+}
+
+int main() {
+    char str[] = "hEllo, WorLD!";
+
+    std::cout << "Original string: " << str << std::endl;
+
+
+    std::cout << "String in uppercase: " << convertToUppercase(str) << std::endl;
+
+    // Don't forget to release the dynamically allocated memory
+    //delete[] uppercaseStr;
+
+    return 0;
+}
+
+
+
+
+// def convert_to_uppercase(str):
+//     """Converts a string to uppercase, swapping the case of letters."""
+//     return "".join(
+//         char.upper() if char.islower() else char.lower() for char in str
+//     )
+
+// # Example usage (same as before)
+
+

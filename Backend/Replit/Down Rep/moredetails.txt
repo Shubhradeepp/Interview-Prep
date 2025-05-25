@@ -1,0 +1,512 @@
+//Oop.js
+
+#include <iostream>
+using namespace std;
+
+class product{
+public:
+int id;
+string color;
+char k;
+static int time;
+
+void print(){
+  cout<<this->color<<"\n";
+  cout<<this->id<<"\n";
+}
+static void sfunx(){
+  cout<<time<<"\n";
+}
+
+static int sfunx1(){ 
+  return time;
+}
+
+product(){
+  cout<<"constracter"<<endl;
+}
+
+product(string color,int id){
+  cout<<"Parameterized constracter"<<endl;
+  this->id=id;
+  this->color=color;
+}
+//Cpy constructor
+product(product *pc){
+   this->id=pc->id;
+  this->color=pc->color;
+}
+~product(){
+  cout<<"Distracter"<<endl;
+  //static allocated object call distractor automatic
+  //call distractor manually for dynamic object
+}
+};
+
+int product::time=10;
+
+
+int main() {
+  
+  product p0;
+  p0.color="Blue";
+
+  cout<<product::time<<"\n";
+product::sfunx();
+  cout<<product::sfunx1()<<"\n";
+  
+  product *p1=new product;
+   p1->color="Black";
+  
+  //cout << sizeof(p1)<<"\n";// Size of Pointer always 8
+ // cout << sizeof(p0)<<"\n";
+//cout << sizeof(*p1)<<"\n";
+  //p0.print();
+ // p1->print();
+
+   product *p2=new product("Red",05);
+ // p2->print();
+  
+//cpy constractor
+
+    product *pc=new product(*p2);
+  pc->print();
+
+    product *pc2=new product(*p2);
+  pc2->print();
+  delete(pc2);
+}
+
+
+//Getters-Setters
+
+
+#include<iostream>
+using namespace std;
+
+class Shape
+{
+    // as private so object.height and object.width is inaccessible
+    int height, width;
+  
+    public:
+    //setters
+    void setHeight(int height){
+        this->height = height;
+    }
+
+    void setWidth(int width){
+        this->width =width;
+    }
+
+    //getters
+    int getHeight(){
+        return this->height;
+    }
+
+    int getWidth(){
+        return this->width;
+    }
+};
+
+int main()
+{
+    Shape *shape= new Shape;
+  Shape *shape1= new Shape;
+    
+    // setters
+    shape->setHeight(5);
+    shape->setWidth(2);
+
+    // getters
+    cout << "The Height is : " << shape->getHeight() << endl;
+    cout << "The Width is : " << shape->getWidth() << endl;
+    
+    // shape.height or shape.width wont work as they are private
+
+   // setters
+    shape1->setHeight(30);
+    shape1->setWidth(29);
+
+    // getters
+    cout << "The Height is : " << shape1->getHeight() << endl;
+    cout << "The Width is : " << shape1->getWidth() << endl;
+    
+
+    return 0;
+}
+
+
+
+//Get-Set-in-Industry
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    // Getter methods
+    string getName() {
+        return this->name;
+    }
+
+    int getAge() {
+        return this->age;
+    }
+
+    // Setter methods
+    void setName(string name) {
+        this->name = name;
+    }
+
+    void setAge(int age) {
+        if (age >= 0 && age <= 100) { // Age validation
+            this->age = age;
+        } else {
+            cout << "Invalid age input." << endl;
+        }
+    }
+};
+
+int main() {
+    Student *student= new Student;
+    
+    student->setName("John");
+    student->setAge(25);
+
+  cout << "Student Name: " << student->getName() << endl;
+  cout << "Student Age: " << student->getAge() << endl;
+
+    student->setAge(150); // Trying to set an invalid age
+    
+    return 0;
+}
+
+
+
+//Super1
+
+#include <iostream>
+using namespace std;
+class MyBaseClass {
+   public:
+   MyBaseClass(int x) {
+      cout << "Constructor of base class: " << x << endl;
+   }
+};
+class MyDerivedClass : public MyBaseClass { //base constructor as initializer list
+   public:
+      MyDerivedClass(int y) : MyBaseClass(50) {
+         cout << "Constructor of derived class: " << y << endl;
+      }
+};
+int main() {
+   MyDerivedClass derived(100);
+}
+
+
+
+// Super 2
+
+
+
+class Person {
+    Person() {
+        System.out.println("Person class Constructor");
+    }
+
+    void message() {
+        System.out.println("This is person class\n");
+    }
+}
+
+// subclass Student extending the Person class
+class Student extends Person {
+    Student() {
+        // invoke or call parent class constructor
+        super();
+
+        System.out.println("Student class Constructor");
+    }
+
+    void message() {
+        System.out.println("This is student class");
+    }
+
+    void display() {
+        // will invoke or call current// class message() method
+        // message();
+        // will invoke or call parent// class message() method
+        super.message();
+    }
+}
+
+// Driver Program
+class Main {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.display();
+    }
+}
+
+
+//Multiple-InheritanceAmbiguity
+
+#include <iostream>
+using namespace std;
+
+class P1			//parent 1
+{
+public:
+void m() 
+  {
+      cout << "\n" << "m1 from parent p1-3sh";
+  } 
+};
+
+class P2			//parent 2
+{
+public:
+void m() 
+  {
+      cout << "\n" << "m2 from parent p2-rish";
+  } 
+};
+
+class child:public P1, public P2
+				//multiple parents p1,p2
+{
+public:
+void m() 
+  {
+      cout << "\n" << "m3 from childs own code-3shrish";
+  } 
+};
+
+int main() 
+{
+    child c;
+    c.P1::m();			//derived from parent p1
+    c.m();			//derived from parent p3//Its own Method
+    c.P2::m();			//derived from parent p2
+}
+
+
+//CompileTime-PolymerphishMethod-Overloading
+
+
+#include <iostream> 
+using namespace std; 
+
+float add(int num1, int num2) 
+{ 
+  return num1 + num2; } 
+//No parameter change but return type change
+
+// double add(int num1, int num2) 
+// { 
+//   return num1 + num2; } 
+//Method overloading by changing artuments or arguments type
+float add(double num1, double num2) 
+{ 
+  return num1 + num2;
+} 
+int main(void) 
+{ 
+  cout << add(10, 20) << endl;
+ cout << add(10.4, 20.5);
+ return 0;
+}
+
+
+//Runtime-PolyMerphismMethod-Overriding
+
+
+#include<iostream>
+using namespace std;
+class Parent {
+    public:
+        void show() {
+            cout << "Inside parent class" << endl;
+        }
+};
+class subclass1: public Parent {
+public:
+void show() {
+        cout << "Inside subclass1" << endl;
+    }
+};
+class subclass2: public Parent {
+ public: 
+// void show() {
+//         cout << "Inside subclass2";
+//     }
+};
+int main() {
+    subclass1 o1;
+    subclass2 o2;
+    o1.show();
+    o2.show();
+}
+
+//inheritance
+
+#include <iostream>
+using namespace std;
+
+//Multiple Inheritance
+
+/*
+// Base class 1
+class Animal {
+public:
+    void eat() {
+        cout << "Animal1 is eating" << endl;
+    }
+};
+
+// Base class 2
+class Pet {
+public:
+    void eat() {
+        cout << "Animal2 is eating" << endl;
+    }
+};
+
+// Derived class (inherits from both Animal and Pet)
+class Dog : public Animal, public Pet {
+public:
+    void bark() {
+        cout << "Dog is barking" << endl;
+    }
+};
+
+int main() {
+    Dog dog;
+    dog.Animal::eat();// correct code 
+    //dog.eat();  // Can access eat() method from Animal (ERROR)
+    //dog.eat(); // Can access play() method from Pet
+    dog.bark();
+    return 0;
+}*/
+
+
+//Hierachy of Inheritance
+/*
+// Base class
+class Animal {
+public:
+    void eat() {
+        cout << "Animal is eating" << endl;
+    }
+};
+
+// Derived class 1 (inherits from Animal)
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "Dog is barking" << endl;
+    }
+};
+
+// Derived class 2 (inherits from Animal)
+class Cat : public Animal {
+public:
+    void meow() {
+        cout << "Cat is meowing" << endl;
+    }
+};
+
+int main() {
+    Dog dog;
+    Cat cat;
+    dog.eat();  // Can access eat() method from Animal
+    cat.eat();  // Can access eat() method from Animal
+    dog.bark();
+    cat.meow();
+    return 0;
+}
+*/
+
+// Multilevled inheritance
+
+
+class Animal {
+public:
+    void eat() {
+        cout << "Animal is eating" << endl;
+    }
+};
+
+// Intermediate class (inherits from Animal)
+class Pet : public Animal {
+public:
+    void play() {
+        cout << "Pet is playing" << endl;
+    }
+};
+
+// Derived class (inherits from Pet)
+class Dog : public Pet {
+public:
+    void bark() {
+        cout << "Dog is barking" << endl;
+    }
+};
+
+int main() {
+    Dog dog;
+    dog.eat();  // Can access eat() method from Animal
+    dog.play(); // Can access play() method from Pet
+    dog.bark();
+    return 0;
+}
+
+
+//Abstraction
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Abstract base class Animal
+abstract class Animal {
+public:
+  // Declare eat() as a pure virtual function
+  virtual void eat() = 0;
+};
+
+// Dog class derived from Animal
+class Dog : public Animal {
+public:
+  void eat() override {
+    cout << "Dog eats Chicken" << endl;
+  }
+};
+
+// Cat class derived from Animal
+class Cat : public Animal {
+public:
+  void eat() override { // Override eat() to define Cat's eating behavior
+    cout << "Cat eats Fish" << endl;
+  }
+};
+
+int main() {
+  Dog dog;
+  dog.eat();  // Calls Dog's overridden eat()
+
+  Cat cat;
+  cat.eat();  // Calls Cat's overridden eat()
+
+  return 0;
+}
+
+
+//
+
+
