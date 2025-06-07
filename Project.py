@@ -128,4 +128,5 @@ Why Node js
 Node.js is a popular choice for this project due to several key advantages:
 
 Asynchronous Programming: Node.js is built on the V8 JavaScript engine, which is highly optimized for asynchronous operations. This makes it well-suited for handling I/O-bound tasks like network requests, database interactions, and file system operations, which are common in chatbot applications.
+
 Scalability: Node.js' event-driven architecture allows it to handle a large number of concurrent connections efficiently. This is crucial for chatbot applications that need to serve multiple users simultaneously.
