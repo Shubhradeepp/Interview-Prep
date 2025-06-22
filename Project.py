@@ -1,4 +1,4 @@
-The Gemini API lets you access the latest generative models from Google.
+The Gemini API lets you access the latest generative models from Google Flash 1.5 model.
 This API reference provides detailed information for the classes and methods available in the Gemini API SDKs. 
 
 Install the Gemini API SDK
