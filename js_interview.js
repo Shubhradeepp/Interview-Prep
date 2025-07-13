@@ -87,6 +87,19 @@ function f(){
 var a=7;
 f();
 
+console.log(fun);      // ƒ fun(c) { … } // Whole function 
+
+
+function fun(c) {
+  var a = c;
+  console.log(a);
+}
+var c = 5;
+console.log(fun(c));
+
+so when the function invoce happened it's create a new execution context 
+  and create memory for variable (includes params passes to the function and variable inside the func) 
+  and for the function any other function presents inside the function 
 
 // Syntaxt Error=> Without running a single line of code (redeclear)
 //**/ Reference Error=> if we try to acess which is not defined;
