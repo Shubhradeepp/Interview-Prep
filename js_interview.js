@@ -1,3 +1,56 @@
+💡 What is JavaScript (JS)?
+
+JavaScript is a high-level, interpreted programming language 
+
+Is JavaScript Asynchronous or Synchronous?
+
+JavaScript is synchronous by default, but it supports asynchronous programming.
+
+🔹 Synchronous (default):
+
+Code runs line-by-line, one after the other
+
+Blocking: Each line must complete before the next starts
+
+
+🔹 Asynchronous (with help):
+
+Using callbacks, Promises, and async/await
+
+Helps in non-blocking tasks like fetching data from an API
+
+
+🧠 JS is synchronous with asynchronous capabilities through the Event Loop.
+
+
+  🧵 Is JavaScript Single-Threaded?
+
+✅ Yes, JavaScript is single-threaded.
+
+It has one call stack and executes one task at a time
+
+This is what makes it synchronous and simple to reason about
+
+To handle async tasks (like timers, HTTP requests), it uses the event loop, web APIs, and callback queue
+
+
+🛠️ Even though JS is single-threaded, it feels concurrent thanks to this mechanism.
+
+
+---
+
+⚙️ Why is JavaScript Interpreted and Not Compiled?
+
+JS is interpreted (mostly), but modern JS engines also do Just-In-Time (JIT) compilation for speed.
+
+🔍 Traditional Reason:
+
+JS code was executed directly in the browser
+
+Browsers would interpret it line by line, making it flexible and dynamic
+
+
+
 // Variables declared with let must be Declared before use
 
 // JavaScript is often described as a lightweight, ***single-threaded [program executes one command at a time, in order, and each task must finish before the next one starts], and synchronous language but have asynchronous behaviour.
