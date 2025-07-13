@@ -80,7 +80,7 @@ console.log(a);
 a=7 // Undefined;
 
 //*** */ Hoisting in JavaScript is a behavior where variable and function declarations are moved to the top of their containing scope (global or function scope) during the compile phase, before the code is executed. This allows functions and variables to be used in code before they are actually *** declared.
-
+when function invoice happen it's create a whole new execution context 
 function f(){
   console.log(a)
 }
