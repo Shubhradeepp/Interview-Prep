@@ -109,6 +109,41 @@ so when the function invoce happened it's create a new execution context
 
 //** */ TDZ Scope: The Temporal Dead Zone (TDZ) in JavaScript is a term that describes the phase in which a variable is declared but cannot be accessed
 
+console.log(a);   // ReferenceError (TDZ of `a`)
+
+let a = 5;
+
+{
+  console.log(y); // ReferenceError (TDZ of `y`, which exists only inside the block)
+  let y = 7;
+}
+//
+//a and y
+They sit in two different Temporal Dead Zones (TDZs), because they live in two different lexical environments.
+
+Diagram: Lexical Environments + TDZ
+
+Global (Script) Lexical Environment
+─────────────────────────────────────────────
+| a → <TDZ> (❌ not initialized)              | ← Before `let a = 5`
+|                                             |
+| 🟥 Accessing `a` here → ReferenceError      |
+| 🟩 After line `let a = 5` → a = 5           |
+─────────────────────────────────────────────
+
+↓ Enters Block { … }
+
+Block Lexical Environment
+─────────────────────────────────────────────
+| y → <TDZ> (❌ not initialized)              | ← Exists only *inside* the block
+|                                             |
+| 🟥 Accessing `y` before `let y = 7` → Error |
+| 🟩 After line `let y = 7` → y = 7           |
+─────────────────────────────────────────────
+
+
+
+    
 // Variables in the TDZ are not accessible, even though they are hoisted.
 // Attempting to access a variable in the TDZ throws a ReferenceError.
 // Hoisting Still Occurs:
