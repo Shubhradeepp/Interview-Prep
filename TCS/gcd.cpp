@@ -13,9 +13,6 @@ int gcd(int a, int b) {
 //int lcm = (a * b) / gcd;
 
 
-
-
-
 // #include<bits/stdc++.h>
 // using namespace std;
 // int main()
